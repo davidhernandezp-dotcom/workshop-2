@@ -1,0 +1,122 @@
+{
+  "name": "dim_category_prepared_suite",
+  "id": "ae6bc1f9-07b7-41a5-81a1-96ca38e209ac",
+  "expectations": [
+    {
+      "type": "expect_table_columns_to_match_set",
+      "kwargs": {
+        "column_set": [
+          "category_key",
+          "category_name",
+          "music_family",
+          "nominee_type"
+        ]
+      },
+      "meta": {
+        "rule_id": "PR-01",
+        "layer": "prepared",
+        "dataset": "dim_category"
+      },
+      "id": "20a2f1f4-a22c-482e-89ab-283b74071b0b",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "category_key"
+      },
+      "meta": {
+        "rule_id": "PR-02",
+        "layer": "prepared",
+        "dataset": "dim_category"
+      },
+      "id": "3c391a68-9bae-4551-95bf-d797de944e8c",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "category_name"
+      },
+      "meta": {
+        "rule_id": "PR-02",
+        "layer": "prepared",
+        "dataset": "dim_category"
+      },
+      "id": "37f9d3c4-d3f7-478b-b071-e7dfac5742ac",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "music_family",
+        "value_set": [
+          "General Field",
+          "Pop",
+          "Rock/Metal/Alternative",
+          "Rap",
+          "R&B/Soul",
+          "Country/Bluegrass",
+          "Folk/Blues/Americana",
+          "Jazz",
+          "Classical",
+          "Latin",
+          "Reggae/World",
+          "Gospel/Christian",
+          "Dance/Electronic",
+          "Musical Theater/Soundtrack",
+          "Children/Spoken/Comedy",
+          "Music Video",
+          "Production/Technical",
+          "Other"
+        ]
+      },
+      "meta": {
+        "rule_id": "PR-11",
+        "layer": "prepared",
+        "dataset": "dim_category"
+      },
+      "id": "6db34531-8e4e-4e0b-9a43-c3f6a09597af",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "nominee_type",
+        "value_set": [
+          "recording_or_work",
+          "album",
+          "person"
+        ]
+      },
+      "meta": {
+        "rule_id": "PR-11",
+        "layer": "prepared",
+        "dataset": "dim_category"
+      },
+      "id": "32b1e126-d890-4fd9-abdb-316498fd862a",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_not_be_in_set",
+      "kwargs": {
+        "column": "music_family",
+        "mostly": 0.75,
+        "value_set": [
+          "Other"
+        ]
+      },
+      "meta": {
+        "rule_id": "PR-12",
+        "layer": "prepared",
+        "dataset": "dim_category"
+      },
+      "id": "7ee1844a-38a5-43dd-9b57-790640523830",
+      "severity": "warning"
+    }
+  ],
+  "meta": {
+    "great_expectations_version": "1.23.1"
+  },
+  "notes": null
+}

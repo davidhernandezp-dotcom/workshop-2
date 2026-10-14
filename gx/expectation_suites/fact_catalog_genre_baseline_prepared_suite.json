@@ -1,0 +1,78 @@
+{
+  "name": "fact_catalog_genre_baseline_prepared_suite",
+  "id": "a92c0242-ea92-4987-8590-97450aed798e",
+  "expectations": [
+    {
+      "type": "expect_table_columns_to_match_set",
+      "kwargs": {
+        "column_set": [
+          "genre_key",
+          "track_count",
+          "avg_popularity",
+          "avg_danceability",
+          "avg_energy",
+          "avg_valence",
+          "avg_acousticness",
+          "avg_loudness",
+          "batch_key"
+        ]
+      },
+      "meta": {
+        "rule_id": "PR-01",
+        "layer": "prepared",
+        "dataset": "fact_catalog_genre_baseline"
+      },
+      "id": "43651794-392a-499b-a428-66ba7b1b8902",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "genre_key",
+        "value_set": [
+          "<resolved at run time>"
+        ]
+      },
+      "meta": {
+        "rule_id": "PR-04",
+        "layer": "prepared",
+        "dataset": "fact_catalog_genre_baseline"
+      },
+      "id": "8447702e-ccfd-435b-8aee-7ad0b92e5623",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "track_count",
+        "min_value": 1.0
+      },
+      "meta": {
+        "rule_id": "PR-13",
+        "layer": "prepared",
+        "dataset": "fact_catalog_genre_baseline"
+      },
+      "id": "ef7227d8-4bd9-4761-81b6-8cd9afefc417",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "avg_popularity",
+        "min_value": 0.0,
+        "max_value": 100.0
+      },
+      "meta": {
+        "rule_id": "PR-13",
+        "layer": "prepared",
+        "dataset": "fact_catalog_genre_baseline"
+      },
+      "id": "e44fc822-2ed6-4173-961e-27a5289daf2f",
+      "severity": "critical"
+    }
+  ],
+  "meta": {
+    "great_expectations_version": "1.23.1"
+  },
+  "notes": null
+}

@@ -1,0 +1,430 @@
+{
+  "gate": "spotify_raw",
+  "layer": "raw",
+  "run_id": "manual__2026-10-08T21:58:42.927650+00:00",
+  "batch_key": null,
+  "evaluated_at_utc": "2026-10-08T21:58:58+00:00",
+  "rows_evaluated": {
+    "spotify_raw": 114000
+  },
+  "expectation_suites": [
+    "spotify_raw_raw_suite"
+  ],
+  "checkpoints": [
+    "spotify_raw_raw_checkpoint"
+  ],
+  "statistics": {
+    "evaluated_expectations": 17,
+    "successful_expectations": 17,
+    "unsuccessful_expectations": 0
+  },
+  "overall_success": true,
+  "max_failed_severity": "none",
+  "decision": "CONTINUE",
+  "failed_rules": [],
+  "failed_critical_rules": [],
+  "failed_warning_rules": [],
+  "failed_info_rules": [],
+  "results": [
+    {
+      "rule_id": "SP-01",
+      "layer": "raw",
+      "dataset": "spotify_raw",
+      "expectation_type": "ExpectTableColumnsToMatchSet",
+      "parameters": {
+        "column_set": "<14 values>",
+        "exact_match": false
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": null,
+      "unexpected_count": null,
+      "unexpected_percent": null,
+      "observed_value": [
+        "Unnamed: 0",
+        "acousticness",
+        "album_name",
+        "artists",
+        "danceability",
+        "duration_ms",
+        "energy",
+        "explicit",
+        "instrumentalness",
+        "key",
+        "liveness",
+        "loudness",
+        "mode",
+        "popularity",
+        "speechiness",
+        "tempo",
+        "time_signature",
+        "track_genre",
+        "track_id",
+        "track_name",
+        "valence"
+      ],
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "SP-02",
+      "layer": "raw",
+      "dataset": "spotify_raw",
+      "expectation_type": "ExpectTableRowCountToBeBetween",
+      "parameters": {
+        "min_value": 50000,
+        "max_value": 500000
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": null,
+      "unexpected_count": null,
+      "unexpected_percent": null,
+      "observed_value": 114000,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "SP-03",
+      "layer": "raw",
+      "dataset": "spotify_raw",
+      "expectation_type": "ExpectColumnValuesToNotBeNull",
+      "parameters": {
+        "column": "track_id"
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 114000,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "SP-04",
+      "layer": "raw",
+      "dataset": "spotify_raw",
+      "expectation_type": "ExpectCompoundColumnsToBeUnique",
+      "parameters": {
+        "column_list": [
+          "track_id",
+          "track_genre"
+        ],
+        "mostly": 0.99
+      },
+      "severity": "warning",
+      "success": true,
+      "element_count": 114000,
+      "unexpected_count": 894,
+      "unexpected_percent": 0.7842,
+      "observed_value": null,
+      "partial_unexpected_list": [
+        {
+          "track_id": "0CDucx9lKxuCZplLXUz0iX",
+          "track_genre": "afrobeat"
+        },
+        {
+          "track_id": "0CDucx9lKxuCZplLXUz0iX",
+          "track_genre": "afrobeat"
+        },
+        {
+          "track_id": "2aibwv5hGXSgw7Yru8IYTO",
+          "track_genre": "alt-rock"
+        },
+        {
+          "track_id": "2aibwv5hGXSgw7Yru8IYTO",
+          "track_genre": "alt-rock"
+        },
+        {
+          "track_id": "7mULVp0DJrI2Nd6GesLvxn",
+          "track_genre": "alternative"
+        },
+        {
+          "track_id": "7mULVp0DJrI2Nd6GesLvxn",
+          "track_genre": "alternative"
+        },
+        {
+          "track_id": "6d3RIvHfVkoOtW1WHXmbX3",
+          "track_genre": "ambient"
+        },
+        {
+          "track_id": "6d3RIvHfVkoOtW1WHXmbX3",
+          "track_genre": "ambient"
+        },
+        {
+          "track_id": "481beimUiUnMUzSbOAFcUT",
+          "track_genre": "anime"
+        },
+        {
+          "track_id": "481beimUiUnMUzSbOAFcUT",
+          "track_genre": "anime"
+        }
+      ],
+      "error": null
+    },
+    {
+      "rule_id": "SP-05",
+      "layer": "raw",
+      "dataset": "spotify_raw",
+      "expectation_type": "ExpectColumnValuesToNotBeNull",
+      "parameters": {
+        "column": "popularity"
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 114000,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "SP-05",
+      "layer": "raw",
+      "dataset": "spotify_raw",
+      "expectation_type": "ExpectColumnValuesToBeBetween",
+      "parameters": {
+        "column": "popularity",
+        "min_value": 0.0,
+        "max_value": 100.0
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 114000,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "SP-06",
+      "layer": "raw",
+      "dataset": "spotify_raw",
+      "expectation_type": "ExpectColumnValuesToBeBetween",
+      "parameters": {
+        "column": "danceability",
+        "min_value": 0.0,
+        "max_value": 1.0
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 114000,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "SP-06",
+      "layer": "raw",
+      "dataset": "spotify_raw",
+      "expectation_type": "ExpectColumnValuesToBeBetween",
+      "parameters": {
+        "column": "energy",
+        "min_value": 0.0,
+        "max_value": 1.0
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 114000,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "SP-06",
+      "layer": "raw",
+      "dataset": "spotify_raw",
+      "expectation_type": "ExpectColumnValuesToBeBetween",
+      "parameters": {
+        "column": "valence",
+        "min_value": 0.0,
+        "max_value": 1.0
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 114000,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "SP-07",
+      "layer": "raw",
+      "dataset": "spotify_raw",
+      "expectation_type": "ExpectColumnValuesToBeBetween",
+      "parameters": {
+        "column": "loudness",
+        "min_value": -60.0,
+        "max_value": 5.0,
+        "mostly": 0.999
+      },
+      "severity": "warning",
+      "success": true,
+      "element_count": 114000,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "SP-08",
+      "layer": "raw",
+      "dataset": "spotify_raw",
+      "expectation_type": "ExpectColumnValuesToNotBeNull",
+      "parameters": {
+        "column": "track_name",
+        "mostly": 0.999
+      },
+      "severity": "warning",
+      "success": true,
+      "element_count": 114000,
+      "unexpected_count": 1,
+      "unexpected_percent": 0.0009,
+      "observed_value": null,
+      "partial_unexpected_list": [
+        null
+      ],
+      "error": null
+    },
+    {
+      "rule_id": "SP-08",
+      "layer": "raw",
+      "dataset": "spotify_raw",
+      "expectation_type": "ExpectColumnValuesToNotBeNull",
+      "parameters": {
+        "column": "artists",
+        "mostly": 0.999
+      },
+      "severity": "warning",
+      "success": true,
+      "element_count": 114000,
+      "unexpected_count": 1,
+      "unexpected_percent": 0.0009,
+      "observed_value": null,
+      "partial_unexpected_list": [
+        null
+      ],
+      "error": null
+    },
+    {
+      "rule_id": "SP-09",
+      "layer": "raw",
+      "dataset": "spotify_raw",
+      "expectation_type": "ExpectColumnValuesToNotBeNull",
+      "parameters": {
+        "column": "track_genre"
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 114000,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "SP-10",
+      "layer": "raw",
+      "dataset": "spotify_raw",
+      "expectation_type": "ExpectColumnValuesToBeBetween",
+      "parameters": {
+        "column": "tempo",
+        "min_value": 0.0,
+        "strict_min": true,
+        "mostly": 0.995
+      },
+      "severity": "warning",
+      "success": true,
+      "element_count": 114000,
+      "unexpected_count": 157,
+      "unexpected_percent": 0.1377,
+      "observed_value": null,
+      "partial_unexpected_list": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "error": null
+    },
+    {
+      "rule_id": "SP-10",
+      "layer": "raw",
+      "dataset": "spotify_raw",
+      "expectation_type": "ExpectColumnValuesToBeBetween",
+      "parameters": {
+        "column": "duration_ms",
+        "min_value": 0.0,
+        "strict_min": true,
+        "mostly": 0.999
+      },
+      "severity": "warning",
+      "success": true,
+      "element_count": 114000,
+      "unexpected_count": 1,
+      "unexpected_percent": 0.0009,
+      "observed_value": null,
+      "partial_unexpected_list": [
+        0
+      ],
+      "error": null
+    },
+    {
+      "rule_id": "SP-11",
+      "layer": "raw",
+      "dataset": "spotify_raw",
+      "expectation_type": "ExpectColumnValuesToBeInSet",
+      "parameters": {
+        "column": "explicit",
+        "value_set": [
+          true,
+          false
+        ]
+      },
+      "severity": "warning",
+      "success": true,
+      "element_count": 114000,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "SP-12",
+      "layer": "raw",
+      "dataset": "spotify_raw",
+      "expectation_type": "ExpectColumnUniqueValueCountToBeBetween",
+      "parameters": {
+        "column": "track_genre",
+        "min_value": 100,
+        "max_value": 130
+      },
+      "severity": "info",
+      "success": true,
+      "element_count": null,
+      "unexpected_count": null,
+      "unexpected_percent": null,
+      "observed_value": 114,
+      "partial_unexpected_list": [],
+      "error": null
+    }
+  ]
+}

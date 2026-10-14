@@ -1,0 +1,87 @@
+{
+  "name": "dim_track_prepared_suite",
+  "id": "989d481c-df16-46cc-8fd3-d33edfdd8a3c",
+  "expectations": [
+    {
+      "type": "expect_table_columns_to_match_set",
+      "kwargs": {
+        "column_set": [
+          "track_key",
+          "spotify_track_id",
+          "track_name",
+          "artists",
+          "album_name",
+          "genre_key",
+          "genre_count",
+          "explicit"
+        ]
+      },
+      "meta": {
+        "rule_id": "PR-01",
+        "layer": "prepared",
+        "dataset": "dim_track"
+      },
+      "id": "66dcb50e-ec96-4d54-9ebc-b7171ebd7ab5",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "track_key"
+      },
+      "meta": {
+        "rule_id": "PR-02",
+        "layer": "prepared",
+        "dataset": "dim_track"
+      },
+      "id": "1c538cb8-e938-4ea2-9ed6-147b789cd802",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "spotify_track_id"
+      },
+      "meta": {
+        "rule_id": "PR-02",
+        "layer": "prepared",
+        "dataset": "dim_track"
+      },
+      "id": "c3e52352-6aae-4289-8c37-53eb8283aa2e",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "spotify_track_id"
+      },
+      "meta": {
+        "rule_id": "PR-02",
+        "layer": "prepared",
+        "dataset": "dim_track"
+      },
+      "id": "2241c468-7834-4e22-9176-42fcb9e03a39",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "genre_key",
+        "value_set": [
+          "<resolved at run time>"
+        ]
+      },
+      "meta": {
+        "rule_id": "PR-04",
+        "layer": "prepared",
+        "dataset": "dim_track"
+      },
+      "id": "2931ce25-b9fa-4b2d-85ba-7fddbabe8c88",
+      "severity": "critical"
+    }
+  ],
+  "meta": {
+    "great_expectations_version": "1.23.1"
+  },
+  "notes": null
+}

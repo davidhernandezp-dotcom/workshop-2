@@ -1,0 +1,52 @@
+{
+  "name": "dim_genre_prepared_suite",
+  "id": "a88f58a3-661f-496c-8592-bb6c8b42f492",
+  "expectations": [
+    {
+      "type": "expect_table_columns_to_match_set",
+      "kwargs": {
+        "column_set": [
+          "genre_key",
+          "genre_name"
+        ]
+      },
+      "meta": {
+        "rule_id": "PR-01",
+        "layer": "prepared",
+        "dataset": "dim_genre"
+      },
+      "id": "e72d4817-ee16-410b-aed1-01799dd6f6e9",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "genre_key"
+      },
+      "meta": {
+        "rule_id": "PR-02",
+        "layer": "prepared",
+        "dataset": "dim_genre"
+      },
+      "id": "ae50a94e-d1d7-4ed9-8bbd-933a3efa533d",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "genre_name"
+      },
+      "meta": {
+        "rule_id": "PR-02",
+        "layer": "prepared",
+        "dataset": "dim_genre"
+      },
+      "id": "9ef3ad00-8b58-4206-80ab-e1ab8966a772",
+      "severity": "critical"
+    }
+  ],
+  "meta": {
+    "great_expectations_version": "1.23.1"
+  },
+  "notes": null
+}

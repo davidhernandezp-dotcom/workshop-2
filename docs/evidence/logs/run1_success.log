@@ -1,0 +1,110 @@
+# run1_success  (run dir: manual__2026-10-08T21_57_37.585369_00_00)
+21:57:41 INFO    [extract_grammys] table=public.grammy_awards db_count=4810 rows_read=4810 -> /tmp/wdata/work/manual__2026-10-08T21_57_37.585369_00_00/raw/grammys_raw.csv
+21:57:46 INFO    [extract_spotify] source=spotify_dataset.csv rows=114000 columns=21 -> /tmp/wdata/work/manual__2026-10-08T21_57_37.585369_00_00/raw/spotify_raw.csv
+21:57:53 INFO    === GX validation gate: spotify_raw ===
+21:57:53 INFO    [PASS] SP-01  critical ExpectTableColumnsToMatchSet           spotify_raw observed=['Unnamed: 0', 'acousticness', 'album_name', 'artists', 'danceability', 'duratio
+21:57:53 INFO    [PASS] SP-02  critical ExpectTableRowCountToBeBetween         spotify_raw observed=114000
+21:57:53 INFO    [PASS] SP-03  critical ExpectColumnValuesToNotBeNull          track_id unexpected=0 (0.0%)
+21:57:53 INFO    [PASS] SP-04  warning  ExpectCompoundColumnsToBeUnique        spotify_raw unexpected=894 (0.7842%)
+21:57:53 INFO    [PASS] SP-05  critical ExpectColumnValuesToNotBeNull          popularity unexpected=0 (0.0%)
+21:57:53 INFO    [PASS] SP-05  critical ExpectColumnValuesToBeBetween          popularity unexpected=0 (0.0%)
+21:57:53 INFO    [PASS] SP-06  critical ExpectColumnValuesToBeBetween          danceability unexpected=0 (0.0%)
+21:57:53 INFO    [PASS] SP-06  critical ExpectColumnValuesToBeBetween          energy unexpected=0 (0.0%)
+21:57:53 INFO    [PASS] SP-06  critical ExpectColumnValuesToBeBetween          valence unexpected=0 (0.0%)
+21:57:53 INFO    [PASS] SP-07  warning  ExpectColumnValuesToBeBetween          loudness unexpected=0 (0.0%)
+21:57:53 INFO    [PASS] SP-08  warning  ExpectColumnValuesToNotBeNull          track_name unexpected=1 (0.0009%)
+21:57:53 INFO    [PASS] SP-08  warning  ExpectColumnValuesToNotBeNull          artists unexpected=1 (0.0009%)
+21:57:53 INFO    [PASS] SP-09  critical ExpectColumnValuesToNotBeNull          track_genre unexpected=0 (0.0%)
+21:57:53 INFO    [PASS] SP-10  warning  ExpectColumnValuesToBeBetween          tempo unexpected=157 (0.1377%)
+21:57:53 INFO    [PASS] SP-10  warning  ExpectColumnValuesToBeBetween          duration_ms unexpected=1 (0.0009%)
+21:57:53 INFO    [PASS] SP-11  warning  ExpectColumnValuesToBeInSet            explicit unexpected=0 (0.0%)
+21:57:53 INFO    [PASS] SP-12  info     ExpectColumnUniqueValueCountToBeBetween track_genre observed=114
+21:57:53 INFO    Gate spotify_raw -> max failed severity=none | decision=CONTINUE | failed rules=none
+21:57:53 INFO    Validation evidence stored in /tmp/wdata/work/manual__2026-10-08T21_57_37.585369_00_00/validation/spotify_raw.json
+21:57:56 INFO    === GX validation gate: grammys_raw ===
+21:57:56 INFO    [PASS] GR-01  critical ExpectTableColumnsToMatchSet           grammys_raw observed=['artist', 'category', 'img', 'nominee', 'published_at', 'row_id', 'title', 'upd
+21:57:56 INFO    [PASS] GR-02  critical ExpectTableRowCountToBeBetween         grammys_raw observed=4810
+21:57:56 INFO    [PASS] GR-03  critical ExpectColumnValuesToNotBeNull          year unexpected=0 (0.0%)
+21:57:56 INFO    [PASS] GR-03  critical ExpectColumnValuesToBeBetween          year unexpected=0 (0.0%)
+21:57:56 INFO    [PASS] GR-04  critical ExpectColumnValuesToNotBeNull          category unexpected=0 (0.0%)
+21:57:56 INFO    [PASS] GR-05  warning  ExpectColumnValuesToNotBeNull          nominee unexpected=6 (0.1247%)
+21:57:56 INFO    [PASS] GR-06  warning  ExpectColumnValuesToNotBeNull          artist unexpected=1840 (38.2536%)
+21:57:56 INFO    [PASS] GR-07  critical ExpectColumnValuesToNotBeNull          winner unexpected=0 (0.0%)
+21:57:56 INFO    [PASS] GR-07  critical ExpectColumnValuesToBeInSet            winner unexpected=0 (0.0%)
+21:57:56 INFO    [FAIL] GR-08  warning  ExpectColumnDistinctValuesToContainSet winner
+21:57:56 INFO    [PASS] GR-09  critical ExpectCompoundColumnsToBeUnique        grammys_raw unexpected=0 (0.0%)
+21:57:56 INFO    [PASS] GR-10  warning  ExpectColumnUniqueValueCountToBeBetween year observed=62
+21:57:56 INFO    Gate grammys_raw -> max failed severity=warning | decision=CONTINUE_WITH_WARNING | failed rules=['GR-08']
+21:57:56 INFO    Validation evidence stored in /tmp/wdata/work/manual__2026-10-08T21_57_37.585369_00_00/validation/grammys_raw.json
+21:57:56 WARNING Gate 'grammys_raw' has WARNING-level failures ['GR-08']; documented policy allows continuing.
+21:57:58 INFO    [transform] batch_key=3b2af2cc7c62ce72 (hash of both source batches)
+21:58:02 INFO    [transform] spotify: rows_in=114000 -> track-grain=89740 (dropped identity=1, duplicate pairs=450)
+21:58:02 INFO    [transform] grammys: rows_in=4810 -> rows_out=4804 (dropped missing nominee=6, duplicate bk=0); category spellings 638 -> 626
+21:58:02 INFO    [transform] integration: matched=304 of 4804 (6.33%) | ambiguous (>1 candidate)=115 | status={'not_matchable_album_or_person': 1773, 'unmatched_no_title_candidate': 1268, 'not_matchable_missing_artist': 1047, 'unmatched_artist_mismatch': 412, 'matched': 304}
+21:58:02 INFO    [transform] prepared tables written to /tmp/wdata/work/manual__2026-10-08T21_57_37.585369_00_00/prepared | rows={'dim_year': 62, 'dim_category': 626, 'dim_genre': 114, 'dim_track': 223, 'fact_grammy_nomination': 4804, 'fact_catalog_genre_baseline': 113}
+21:58:06 INFO    === GX validation gate: prepared ===
+21:58:06 INFO    [PASS] PR-01  critical ExpectTableColumnsToMatchSet           dim_category observed=['category_key', 'category_name', 'music_family', 'nominee_type']
+21:58:06 INFO    [PASS] PR-02  critical ExpectColumnValuesToBeUnique           category_key unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-02  critical ExpectColumnValuesToBeUnique           category_name unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-11  critical ExpectColumnValuesToBeInSet            music_family unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-11  critical ExpectColumnValuesToBeInSet            nominee_type unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-12  warning  ExpectColumnValuesToNotBeInSet         music_family unexpected=35 (5.5911%)
+21:58:06 INFO    [PASS] PR-01  critical ExpectTableColumnsToMatchSet           dim_genre observed=['genre_key', 'genre_name']
+21:58:06 INFO    [PASS] PR-02  critical ExpectColumnValuesToBeUnique           genre_key unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-02  critical ExpectColumnValuesToBeUnique           genre_name unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-01  critical ExpectTableColumnsToMatchSet           dim_track observed=['album_name', 'artists', 'explicit', 'genre_count', 'genre_key', 'spotify_track
+21:58:06 INFO    [PASS] PR-02  critical ExpectColumnValuesToBeUnique           track_key unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-02  critical ExpectColumnValuesToBeUnique           spotify_track_id unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-02  critical ExpectColumnValuesToNotBeNull          spotify_track_id unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-04  critical ExpectColumnValuesToBeInSet            genre_key unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-01  critical ExpectTableColumnsToMatchSet           dim_year observed=['ceremony_title', 'coverage_type', 'decade', 'decade_label', 'records_per_categ
+21:58:06 INFO    [PASS] PR-02  critical ExpectColumnValuesToBeUnique           year_key unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-02  critical ExpectColumnValuesToNotBeNull          year_key unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-11  critical ExpectColumnValuesToBeInSet            coverage_type unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-14  critical ExpectColumnValuesToBeBetween          year_key unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-01  critical ExpectTableColumnsToMatchSet           fact_catalog_genre_baseline observed=['avg_acousticness', 'avg_danceability', 'avg_energy', 'avg_loudness', 'avg_popu
+21:58:06 INFO    [PASS] PR-04  critical ExpectColumnValuesToBeInSet            genre_key unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-13  critical ExpectColumnValuesToBeBetween          track_count unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-13  critical ExpectColumnValuesToBeBetween          avg_popularity unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-01  critical ExpectTableColumnsToMatchSet           fact_grammy_nomination observed=['acousticness', 'batch_key', 'category_key', 'danceability', 'duration_ms', 'en
+21:58:06 INFO    [PASS] PR-03  critical ExpectColumnValuesToNotBeNull          nomination_bk unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-03  critical ExpectColumnValuesToBeUnique           nomination_bk unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-03  critical ExpectColumnValuesToBeUnique           nomination_key unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-04  critical ExpectColumnValuesToBeInSet            year_key unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-04  critical ExpectColumnValuesToBeInSet            category_key unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-04  critical ExpectColumnValuesToBeInSet            track_key unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-05  critical ExpectColumnValuesToBeBetween          track_key unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-05  critical ExpectColumnValuesToBeInSet            track_key unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-05  critical ExpectColumnValuesToBeInSet            spotify_matched unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-05  critical ExpectColumnValuesToNotBeNull          popularity unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-06  critical ExpectColumnValuesToBeBetween          popularity unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-06  critical ExpectColumnValuesToBeBetween          danceability unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-06  critical ExpectColumnValuesToBeBetween          energy unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-06  critical ExpectColumnValuesToBeBetween          valence unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-06  critical ExpectColumnValuesToBeBetween          acousticness unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-07  warning  ExpectColumnValuesToBeBetween          loudness unexpected=0 (0.0%)
+21:58:06 INFO    [PASS] PR-08  critical ExpectTableRowCountToEqual             fact_grammy_nomination observed=4804
+21:58:06 INFO    [PASS] PR-09  warning  ExpectColumnValuesToBeBetween          match_candidates unexpected=115 (37.8289%)
+21:58:06 INFO    [PASS] PR-10  critical ExpectColumnSumToBeBetween             spotify_matched observed=304
+21:58:06 INFO    [PASS] PR-11  critical ExpectColumnValuesToBeInSet            match_status unexpected=0 (0.0%)
+21:58:06 INFO    Gate prepared -> max failed severity=none | decision=CONTINUE | failed rules=none
+21:58:06 INFO    Validation evidence stored in /tmp/wdata/work/manual__2026-10-08T21_57_37.585369_00_00/validation/prepared.json
+21:58:09 INFO    [load] dim_year                       rows loaded = 62
+21:58:09 INFO    [load] dim_category                   rows loaded = 626
+21:58:09 INFO    [load] dim_genre                      rows loaded = 114
+21:58:09 INFO    [load] dim_track                      rows loaded = 223
+21:58:09 INFO    [load] fact_grammy_nomination         rows loaded = 4804
+21:58:09 INFO    [load] fact_catalog_genre_baseline    rows loaded = 113
+21:58:09 INFO    [load] post-load check: fact rows=4804 matched=304
+21:58:09 INFO    [load] COMMIT ok | batch_key=3b2af2cc7c62ce72 | load_count=1 | audit validation rows=73
+21:58:11 INFO    [publish] headline KPIs from the DW: {'total_nominations': 4804, 'matched_nominations': 304, 'match_rate_pct': 6.33, 'avg_popularity_matched': 59.71, 'avg_popularity_lift': 27.14, 'latest_batch_key': '3b2af2cc7c62ce72'}
+21:58:11 INFO    [publish] run summary: /tmp/wdata/work/manual__2026-10-08T21_57_37.585369_00_00/run_summary.json
+DAGRUN_STATE success
+TI extract_spotify success
+TI extract_grammys success
+TI validate_spotify_raw success
+TI validate_grammys_raw success
+TI transform_and_integrate success
+TI validate_prepared success
+TI load_dw success
+TI publish_run_summary success

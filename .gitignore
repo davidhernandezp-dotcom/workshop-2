@@ -1,0 +1,12 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+logs/*
+!logs/.gitkeep
+data/work/*
+!data/work/.gitkeep
+data/raw/spotify_dataset_bad.csv
+.ipynb_checkpoints/
+uncommitted/

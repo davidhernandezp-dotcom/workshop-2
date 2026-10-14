@@ -1,0 +1,999 @@
+{
+  "gate": "prepared",
+  "layer": "prepared",
+  "run_id": "manual__2026-10-08T21:59:23.921431+00:00",
+  "batch_key": "3b2af2cc7c62ce72",
+  "evaluated_at_utc": "2026-10-08T21:59:53+00:00",
+  "rows_evaluated": {
+    "dim_year": 62,
+    "dim_category": 626,
+    "dim_genre": 114,
+    "dim_track": 223,
+    "fact_grammy_nomination": 4804,
+    "fact_catalog_genre_baseline": 113
+  },
+  "expectation_suites": [
+    "dim_year_prepared_suite",
+    "dim_category_prepared_suite",
+    "dim_genre_prepared_suite",
+    "dim_track_prepared_suite",
+    "fact_grammy_nomination_prepared_suite",
+    "fact_catalog_genre_baseline_prepared_suite"
+  ],
+  "checkpoints": [
+    "dim_year_prepared_checkpoint",
+    "dim_category_prepared_checkpoint",
+    "dim_genre_prepared_checkpoint",
+    "dim_track_prepared_checkpoint",
+    "fact_grammy_nomination_prepared_checkpoint",
+    "fact_catalog_genre_baseline_prepared_checkpoint"
+  ],
+  "statistics": {
+    "evaluated_expectations": 44,
+    "successful_expectations": 44,
+    "unsuccessful_expectations": 0
+  },
+  "overall_success": true,
+  "max_failed_severity": "none",
+  "decision": "CONTINUE",
+  "failed_rules": [],
+  "failed_critical_rules": [],
+  "failed_warning_rules": [],
+  "failed_info_rules": [],
+  "results": [
+    {
+      "rule_id": "PR-01",
+      "layer": "prepared",
+      "dataset": "dim_category",
+      "expectation_type": "ExpectTableColumnsToMatchSet",
+      "parameters": {
+        "column_set": [
+          "category_key",
+          "category_name",
+          "music_family",
+          "nominee_type"
+        ]
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": null,
+      "unexpected_count": null,
+      "unexpected_percent": null,
+      "observed_value": [
+        "category_key",
+        "category_name",
+        "music_family",
+        "nominee_type"
+      ],
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-02",
+      "layer": "prepared",
+      "dataset": "dim_category",
+      "expectation_type": "ExpectColumnValuesToBeUnique",
+      "parameters": {
+        "column": "category_key"
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 626,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-02",
+      "layer": "prepared",
+      "dataset": "dim_category",
+      "expectation_type": "ExpectColumnValuesToBeUnique",
+      "parameters": {
+        "column": "category_name"
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 626,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-11",
+      "layer": "prepared",
+      "dataset": "dim_category",
+      "expectation_type": "ExpectColumnValuesToBeInSet",
+      "parameters": {
+        "column": "music_family",
+        "value_set": "<18 values>"
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 626,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-11",
+      "layer": "prepared",
+      "dataset": "dim_category",
+      "expectation_type": "ExpectColumnValuesToBeInSet",
+      "parameters": {
+        "column": "nominee_type",
+        "value_set": [
+          "recording_or_work",
+          "album",
+          "person"
+        ]
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 626,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-12",
+      "layer": "prepared",
+      "dataset": "dim_category",
+      "expectation_type": "ExpectColumnValuesToNotBeInSet",
+      "parameters": {
+        "column": "music_family",
+        "mostly": 0.75,
+        "value_set": [
+          "Other"
+        ]
+      },
+      "severity": "warning",
+      "success": true,
+      "element_count": 626,
+      "unexpected_count": 35,
+      "unexpected_percent": 5.5911,
+      "observed_value": null,
+      "partial_unexpected_list": [
+        "Other",
+        "Other",
+        "Other",
+        "Other",
+        "Other",
+        "Other",
+        "Other",
+        "Other",
+        "Other",
+        "Other"
+      ],
+      "error": null
+    },
+    {
+      "rule_id": "PR-01",
+      "layer": "prepared",
+      "dataset": "dim_genre",
+      "expectation_type": "ExpectTableColumnsToMatchSet",
+      "parameters": {
+        "column_set": [
+          "genre_key",
+          "genre_name"
+        ]
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": null,
+      "unexpected_count": null,
+      "unexpected_percent": null,
+      "observed_value": [
+        "genre_key",
+        "genre_name"
+      ],
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-02",
+      "layer": "prepared",
+      "dataset": "dim_genre",
+      "expectation_type": "ExpectColumnValuesToBeUnique",
+      "parameters": {
+        "column": "genre_key"
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 114,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-02",
+      "layer": "prepared",
+      "dataset": "dim_genre",
+      "expectation_type": "ExpectColumnValuesToBeUnique",
+      "parameters": {
+        "column": "genre_name"
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 114,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-01",
+      "layer": "prepared",
+      "dataset": "dim_track",
+      "expectation_type": "ExpectTableColumnsToMatchSet",
+      "parameters": {
+        "column_set": [
+          "track_key",
+          "spotify_track_id",
+          "track_name",
+          "artists",
+          "album_name",
+          "genre_key",
+          "genre_count",
+          "explicit"
+        ]
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": null,
+      "unexpected_count": null,
+      "unexpected_percent": null,
+      "observed_value": [
+        "album_name",
+        "artists",
+        "explicit",
+        "genre_count",
+        "genre_key",
+        "spotify_track_id",
+        "track_key",
+        "track_name"
+      ],
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-02",
+      "layer": "prepared",
+      "dataset": "dim_track",
+      "expectation_type": "ExpectColumnValuesToBeUnique",
+      "parameters": {
+        "column": "track_key"
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 223,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-02",
+      "layer": "prepared",
+      "dataset": "dim_track",
+      "expectation_type": "ExpectColumnValuesToBeUnique",
+      "parameters": {
+        "column": "spotify_track_id"
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 223,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-02",
+      "layer": "prepared",
+      "dataset": "dim_track",
+      "expectation_type": "ExpectColumnValuesToNotBeNull",
+      "parameters": {
+        "column": "spotify_track_id"
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 223,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-04",
+      "layer": "prepared",
+      "dataset": "dim_track",
+      "expectation_type": "ExpectColumnValuesToBeInSet",
+      "parameters": {
+        "column": "genre_key",
+        "value_set": "<114 values>"
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 223,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-01",
+      "layer": "prepared",
+      "dataset": "dim_year",
+      "expectation_type": "ExpectTableColumnsToMatchSet",
+      "parameters": {
+        "column_set": [
+          "year_key",
+          "decade",
+          "decade_label",
+          "ceremony_title",
+          "coverage_type",
+          "records_per_category"
+        ]
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": null,
+      "unexpected_count": null,
+      "unexpected_percent": null,
+      "observed_value": [
+        "ceremony_title",
+        "coverage_type",
+        "decade",
+        "decade_label",
+        "records_per_category",
+        "year_key"
+      ],
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-02",
+      "layer": "prepared",
+      "dataset": "dim_year",
+      "expectation_type": "ExpectColumnValuesToBeUnique",
+      "parameters": {
+        "column": "year_key"
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 62,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-02",
+      "layer": "prepared",
+      "dataset": "dim_year",
+      "expectation_type": "ExpectColumnValuesToNotBeNull",
+      "parameters": {
+        "column": "year_key"
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 62,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-11",
+      "layer": "prepared",
+      "dataset": "dim_year",
+      "expectation_type": "ExpectColumnValuesToBeInSet",
+      "parameters": {
+        "column": "coverage_type",
+        "value_set": [
+          "winners_only",
+          "all_nominees"
+        ]
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 62,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-14",
+      "layer": "prepared",
+      "dataset": "dim_year",
+      "expectation_type": "ExpectColumnValuesToBeBetween",
+      "parameters": {
+        "column": "year_key",
+        "min_value": 1958.0,
+        "max_value": 2026.0
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 62,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-01",
+      "layer": "prepared",
+      "dataset": "fact_catalog_genre_baseline",
+      "expectation_type": "ExpectTableColumnsToMatchSet",
+      "parameters": {
+        "column_set": [
+          "genre_key",
+          "track_count",
+          "avg_popularity",
+          "avg_danceability",
+          "avg_energy",
+          "avg_valence",
+          "avg_acousticness",
+          "avg_loudness",
+          "batch_key"
+        ]
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": null,
+      "unexpected_count": null,
+      "unexpected_percent": null,
+      "observed_value": [
+        "avg_acousticness",
+        "avg_danceability",
+        "avg_energy",
+        "avg_loudness",
+        "avg_popularity",
+        "avg_valence",
+        "batch_key",
+        "genre_key",
+        "track_count"
+      ],
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-04",
+      "layer": "prepared",
+      "dataset": "fact_catalog_genre_baseline",
+      "expectation_type": "ExpectColumnValuesToBeInSet",
+      "parameters": {
+        "column": "genre_key",
+        "value_set": "<114 values>"
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 113,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-13",
+      "layer": "prepared",
+      "dataset": "fact_catalog_genre_baseline",
+      "expectation_type": "ExpectColumnValuesToBeBetween",
+      "parameters": {
+        "column": "track_count",
+        "min_value": 1.0
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 113,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-13",
+      "layer": "prepared",
+      "dataset": "fact_catalog_genre_baseline",
+      "expectation_type": "ExpectColumnValuesToBeBetween",
+      "parameters": {
+        "column": "avg_popularity",
+        "min_value": 0.0,
+        "max_value": 100.0
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 113,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-01",
+      "layer": "prepared",
+      "dataset": "fact_grammy_nomination",
+      "expectation_type": "ExpectTableColumnsToMatchSet",
+      "parameters": {
+        "column_set": "<20 values>"
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": null,
+      "unexpected_count": null,
+      "unexpected_percent": null,
+      "observed_value": [
+        "acousticness",
+        "batch_key",
+        "category_key",
+        "danceability",
+        "duration_ms",
+        "energy",
+        "grammy_artist",
+        "loudness",
+        "match_candidates",
+        "match_status",
+        "nomination_bk",
+        "nomination_count",
+        "nomination_key",
+        "nominee",
+        "popularity",
+        "spotify_matched",
+        "tempo",
+        "track_key",
+        "valence",
+        "year_key"
+      ],
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-03",
+      "layer": "prepared",
+      "dataset": "fact_grammy_nomination",
+      "expectation_type": "ExpectColumnValuesToNotBeNull",
+      "parameters": {
+        "column": "nomination_bk"
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 4804,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-03",
+      "layer": "prepared",
+      "dataset": "fact_grammy_nomination",
+      "expectation_type": "ExpectColumnValuesToBeUnique",
+      "parameters": {
+        "column": "nomination_bk"
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 4804,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-03",
+      "layer": "prepared",
+      "dataset": "fact_grammy_nomination",
+      "expectation_type": "ExpectColumnValuesToBeUnique",
+      "parameters": {
+        "column": "nomination_key"
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 4804,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-04",
+      "layer": "prepared",
+      "dataset": "fact_grammy_nomination",
+      "expectation_type": "ExpectColumnValuesToBeInSet",
+      "parameters": {
+        "column": "year_key",
+        "value_set": "<62 values>"
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 4804,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-04",
+      "layer": "prepared",
+      "dataset": "fact_grammy_nomination",
+      "expectation_type": "ExpectColumnValuesToBeInSet",
+      "parameters": {
+        "column": "category_key",
+        "value_set": "<626 values>"
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 4804,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-04",
+      "layer": "prepared",
+      "dataset": "fact_grammy_nomination",
+      "expectation_type": "ExpectColumnValuesToBeInSet",
+      "parameters": {
+        "column": "track_key",
+        "value_set": "<223 values>"
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 4804,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-05",
+      "layer": "prepared",
+      "dataset": "fact_grammy_nomination",
+      "expectation_type": "ExpectColumnValuesToBeBetween",
+      "parameters": {
+        "column": "track_key",
+        "min_value": 1.0,
+        "row_condition": {
+          "pass_through_filter": "spotify_matched==1",
+          "type": "pass_through"
+        }
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 304,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-05",
+      "layer": "prepared",
+      "dataset": "fact_grammy_nomination",
+      "expectation_type": "ExpectColumnValuesToBeInSet",
+      "parameters": {
+        "column": "track_key",
+        "value_set": [
+          -1
+        ],
+        "row_condition": {
+          "pass_through_filter": "spotify_matched==0",
+          "type": "pass_through"
+        }
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 4500,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-05",
+      "layer": "prepared",
+      "dataset": "fact_grammy_nomination",
+      "expectation_type": "ExpectColumnValuesToBeInSet",
+      "parameters": {
+        "column": "spotify_matched",
+        "value_set": [
+          0,
+          1
+        ]
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 4804,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-05",
+      "layer": "prepared",
+      "dataset": "fact_grammy_nomination",
+      "expectation_type": "ExpectColumnValuesToNotBeNull",
+      "parameters": {
+        "column": "popularity",
+        "row_condition": {
+          "pass_through_filter": "spotify_matched==1",
+          "type": "pass_through"
+        }
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 304,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-06",
+      "layer": "prepared",
+      "dataset": "fact_grammy_nomination",
+      "expectation_type": "ExpectColumnValuesToBeBetween",
+      "parameters": {
+        "column": "popularity",
+        "min_value": 0.0,
+        "max_value": 100.0,
+        "row_condition": {
+          "pass_through_filter": "spotify_matched==1",
+          "type": "pass_through"
+        }
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 304,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-06",
+      "layer": "prepared",
+      "dataset": "fact_grammy_nomination",
+      "expectation_type": "ExpectColumnValuesToBeBetween",
+      "parameters": {
+        "column": "danceability",
+        "min_value": 0.0,
+        "max_value": 1.0,
+        "row_condition": {
+          "pass_through_filter": "spotify_matched==1",
+          "type": "pass_through"
+        }
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 304,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-06",
+      "layer": "prepared",
+      "dataset": "fact_grammy_nomination",
+      "expectation_type": "ExpectColumnValuesToBeBetween",
+      "parameters": {
+        "column": "energy",
+        "min_value": 0.0,
+        "max_value": 1.0,
+        "row_condition": {
+          "pass_through_filter": "spotify_matched==1",
+          "type": "pass_through"
+        }
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 304,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-06",
+      "layer": "prepared",
+      "dataset": "fact_grammy_nomination",
+      "expectation_type": "ExpectColumnValuesToBeBetween",
+      "parameters": {
+        "column": "valence",
+        "min_value": 0.0,
+        "max_value": 1.0,
+        "row_condition": {
+          "pass_through_filter": "spotify_matched==1",
+          "type": "pass_through"
+        }
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 304,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-06",
+      "layer": "prepared",
+      "dataset": "fact_grammy_nomination",
+      "expectation_type": "ExpectColumnValuesToBeBetween",
+      "parameters": {
+        "column": "acousticness",
+        "min_value": 0.0,
+        "max_value": 1.0,
+        "row_condition": {
+          "pass_through_filter": "spotify_matched==1",
+          "type": "pass_through"
+        }
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 304,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-07",
+      "layer": "prepared",
+      "dataset": "fact_grammy_nomination",
+      "expectation_type": "ExpectColumnValuesToBeBetween",
+      "parameters": {
+        "column": "loudness",
+        "min_value": -60.0,
+        "max_value": 5.0,
+        "row_condition": {
+          "pass_through_filter": "spotify_matched==1",
+          "type": "pass_through"
+        }
+      },
+      "severity": "warning",
+      "success": true,
+      "element_count": 304,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-08",
+      "layer": "prepared",
+      "dataset": "fact_grammy_nomination",
+      "expectation_type": "ExpectTableRowCountToEqual",
+      "parameters": {
+        "value": 4804
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": null,
+      "unexpected_count": null,
+      "unexpected_percent": null,
+      "observed_value": 4804,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-09",
+      "layer": "prepared",
+      "dataset": "fact_grammy_nomination",
+      "expectation_type": "ExpectColumnValuesToBeBetween",
+      "parameters": {
+        "column": "match_candidates",
+        "min_value": 1.0,
+        "max_value": 1.0,
+        "mostly": 0.5,
+        "row_condition": {
+          "pass_through_filter": "spotify_matched==1",
+          "type": "pass_through"
+        }
+      },
+      "severity": "warning",
+      "success": true,
+      "element_count": 304,
+      "unexpected_count": 115,
+      "unexpected_percent": 37.8289,
+      "observed_value": null,
+      "partial_unexpected_list": [
+        5,
+        2,
+        3,
+        4,
+        2,
+        2,
+        2,
+        3,
+        2,
+        7
+      ],
+      "error": null
+    },
+    {
+      "rule_id": "PR-10",
+      "layer": "prepared",
+      "dataset": "fact_grammy_nomination",
+      "expectation_type": "ExpectColumnSumToBeBetween",
+      "parameters": {
+        "column": "spotify_matched",
+        "min_value": 100.0
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": null,
+      "unexpected_count": null,
+      "unexpected_percent": null,
+      "observed_value": 304,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "PR-11",
+      "layer": "prepared",
+      "dataset": "fact_grammy_nomination",
+      "expectation_type": "ExpectColumnValuesToBeInSet",
+      "parameters": {
+        "column": "match_status",
+        "value_set": [
+          "matched",
+          "unmatched_no_title_candidate",
+          "unmatched_artist_mismatch",
+          "not_matchable_album_or_person",
+          "not_matchable_missing_artist"
+        ]
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 4804,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    }
+  ]
+}

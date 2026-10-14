@@ -1,0 +1,72 @@
+ total_nominations | matched_nominations | match_rate_pct | avg_popularity_matched | avg_popularity_lift | latest_batch_key 
+-------------------+---------------------+----------------+------------------------+---------------------+------------------
+              4804 |                 304 |           6.33 |                  59.71 |               27.14 | 3b2af2cc7c62ce72
+(1 row)
+
+ decade | decade_label | matched_nominations | avg_popularity | avg_genre_baseline_popularity | avg_popularity_lift 
+--------+--------------+---------------------+----------------+-------------------------------+---------------------
+   1950 | 1950s        |                   5 |          24.40 |                         33.85 |               -9.45
+   1960 | 1960s        |                  20 |          34.70 |                         24.48 |               10.22
+   1970 | 1970s        |                  30 |          55.27 |                         32.78 |               22.49
+   1980 | 1980s        |                  42 |          57.86 |                         30.65 |               27.21
+   1990 | 1990s        |                  59 |          61.85 |                         34.80 |               27.05
+   2000 | 2000s        |                  58 |          62.03 |                         32.75 |               29.28
+   2010 | 2010s        |                  90 |          66.68 |                         33.56 |               33.12
+(7 rows)
+
+ decade | decade_label | matched_nominations | avg_danceability | avg_energy | avg_valence | avg_acousticness | avg_loudness_db 
+--------+--------------+---------------------+------------------+------------+-------------+------------------+-----------------
+   1950 | 1950s        |                   5 |            0.609 |      0.515 |       0.738 |            0.603 |          -10.13
+   1960 | 1960s        |                  20 |            0.605 |      0.446 |       0.623 |            0.567 |          -10.76
+   1970 | 1970s        |                  30 |            0.581 |      0.527 |       0.637 |            0.364 |          -10.62
+   1980 | 1980s        |                  42 |            0.646 |      0.568 |       0.584 |            0.305 |          -10.01
+   1990 | 1990s        |                  59 |            0.553 |      0.606 |       0.498 |            0.319 |           -8.25
+   2000 | 2000s        |                  58 |            0.589 |      0.650 |       0.516 |            0.216 |           -6.49
+   2010 | 2010s        |                  90 |            0.630 |      0.623 |       0.486 |            0.235 |           -6.61
+(7 rows)
+
+   primary_genre   | matched_nominations | distinct_tracks | avg_popularity | genre_baseline_popularity | avg_popularity_lift 
+-------------------+---------------------+-----------------+----------------+---------------------------+---------------------
+ country           |                  31 |              21 |          50.48 |                     17.44 |               33.05
+ disco             |                  31 |              22 |          60.26 |                     34.11 |               26.15
+ blues             |                  24 |              14 |          55.42 |                     31.24 |               24.17
+ british           |                  21 |              12 |          74.24 |                     45.00 |               29.23
+ dance             |                  21 |              14 |          62.86 |                     23.86 |               38.99
+ hip-hop           |                  14 |               8 |          53.64 |                     43.01 |               10.63
+ singer-songwriter |                  13 |              10 |          54.23 |                     43.23 |               11.00
+ alt-rock          |                  12 |               9 |          68.92 |                     34.40 |               34.52
+ soul              |                  11 |               8 |          66.36 |                     26.39 |               39.97
+ hard-rock         |                  10 |              10 |          65.90 |                     46.00 |               19.90
+(10 rows)
+
+        music_family        | total_nominations | matched_nominations | match_rate_pct | avg_popularity_matched 
+----------------------------+-------------------+---------------------+----------------+------------------------
+ Rock/Metal/Alternative     |               335 |                  63 |          18.81 |                  57.70
+ Pop                        |               326 |                  62 |          19.02 |                  64.87
+ General Field              |               256 |                  47 |          18.36 |                  65.66
+ R&B/Soul                   |               426 |                  36 |           8.45 |                  56.14
+ Country/Bluegrass          |               387 |                  35 |           9.04 |                  48.91
+ Music Video                |                84 |                  13 |          15.48 |                  65.54
+ Dance/Electronic           |                50 |                  12 |          24.00 |                  63.83
+ Rap                        |               138 |                  10 |           7.25 |                  65.00
+ Musical Theater/Soundtrack |               196 |                   8 |           4.08 |                  68.13
+ Production/Technical       |               394 |                   5 |           1.27 |                  59.00
+ Classical                  |               831 |                   4 |           0.48 |                  48.00
+ Folk/Blues/Americana       |               159 |                   4 |           2.52 |                  55.00
+ Children/Spoken/Comedy     |               218 |                   2 |           0.92 |                   0.00
+ Gospel/Christian           |               196 |                   2 |           1.02 |                  66.00
+ Jazz                       |               294 |                   1 |           0.34 |                  24.00
+ Latin                      |               207 |                   0 |           0.00 |                       
+ Reggae/World               |               170 |                   0 |           0.00 |                       
+ Other                      |               137 |                   0 |           0.00 |                       
+(18 rows)
+
+         match_status          | nominations | pct_of_nominations 
+-------------------------------+-------------+--------------------
+ not_matchable_album_or_person |        1773 |              36.91
+ unmatched_no_title_candidate  |        1268 |              26.39
+ not_matchable_missing_artist  |        1047 |              21.79
+ unmatched_artist_mismatch     |         412 |               8.58
+ matched                       |         304 |               6.33
+(5 rows)
+

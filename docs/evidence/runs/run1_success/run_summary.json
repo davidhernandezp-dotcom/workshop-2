@@ -1,0 +1,30 @@
+{
+  "run_id": "manual__2026-10-08T21:57:37.585369+00:00",
+  "params": {
+    "spotify_filename": "spotify_dataset.csv",
+    "grammy_table": "grammy_awards"
+  },
+  "batch_key": "3b2af2cc7c62ce72",
+  "load_count_for_this_batch": 1,
+  "rows_loaded": {
+    "dim_year": 62,
+    "dim_category": 626,
+    "dim_genre": 114,
+    "dim_track": 223,
+    "fact_grammy_nomination": 4804,
+    "fact_catalog_genre_baseline": 113
+  },
+  "headline_kpis": {
+    "total_nominations": 4804,
+    "matched_nominations": 304,
+    "match_rate_pct": 6.33,
+    "avg_popularity_matched": 59.71,
+    "avg_popularity_lift": 27.14,
+    "latest_batch_key": "3b2af2cc7c62ce72"
+  },
+  "validation_files": [
+    "/tmp/wdata/work/manual__2026-10-08T21_57_37.585369_00_00/validation/spotify_raw.json",
+    "/tmp/wdata/work/manual__2026-10-08T21_57_37.585369_00_00/validation/grammys_raw.json",
+    "/tmp/wdata/work/manual__2026-10-08T21_57_37.585369_00_00/validation/prepared.json"
+  ]
+}

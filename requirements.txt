@@ -1,0 +1,4 @@
+# Runtime dependencies baked into the Airflow image (Python 3.12 inside the container)
+great_expectations==1.23.1
+pandas>=2.2,<3
+psycopg2-binary>=2.9

@@ -1,0 +1,394 @@
+{
+  "name": "fact_grammy_nomination_prepared_suite",
+  "id": "b4826a47-4434-4907-bd4b-91dd84cec47f",
+  "expectations": [
+    {
+      "type": "expect_table_columns_to_match_set",
+      "kwargs": {
+        "column_set": [
+          "nomination_key",
+          "nomination_bk",
+          "year_key",
+          "category_key",
+          "track_key",
+          "nominee",
+          "grammy_artist",
+          "match_status",
+          "match_candidates",
+          "spotify_matched",
+          "nomination_count",
+          "popularity",
+          "duration_ms",
+          "danceability",
+          "energy",
+          "valence",
+          "acousticness",
+          "loudness",
+          "tempo",
+          "batch_key"
+        ]
+      },
+      "meta": {
+        "rule_id": "PR-01",
+        "layer": "prepared",
+        "dataset": "fact_grammy_nomination"
+      },
+      "id": "103ef797-2721-486f-9efa-2878d1783728",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "nomination_bk"
+      },
+      "meta": {
+        "rule_id": "PR-03",
+        "layer": "prepared",
+        "dataset": "fact_grammy_nomination"
+      },
+      "id": "7478002f-1b34-452f-b301-0940c965ee83",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "nomination_bk"
+      },
+      "meta": {
+        "rule_id": "PR-03",
+        "layer": "prepared",
+        "dataset": "fact_grammy_nomination"
+      },
+      "id": "fb90ee80-ca26-4d6a-ba5f-4d6432ca1432",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "nomination_key"
+      },
+      "meta": {
+        "rule_id": "PR-03",
+        "layer": "prepared",
+        "dataset": "fact_grammy_nomination"
+      },
+      "id": "827fde9b-40c0-4ba8-8113-61ff5ab3bc4e",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "year_key",
+        "value_set": [
+          "<resolved at run time>"
+        ]
+      },
+      "meta": {
+        "rule_id": "PR-04",
+        "layer": "prepared",
+        "dataset": "fact_grammy_nomination"
+      },
+      "id": "63faced3-330d-48f4-990f-148962e3e738",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "category_key",
+        "value_set": [
+          "<resolved at run time>"
+        ]
+      },
+      "meta": {
+        "rule_id": "PR-04",
+        "layer": "prepared",
+        "dataset": "fact_grammy_nomination"
+      },
+      "id": "c2978e2a-67b2-4dd5-b952-a4b9c6d58b7d",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "track_key",
+        "value_set": [
+          "<resolved at run time>"
+        ]
+      },
+      "meta": {
+        "rule_id": "PR-04",
+        "layer": "prepared",
+        "dataset": "fact_grammy_nomination"
+      },
+      "id": "3875ce48-90fe-418c-8546-76487b652a86",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "spotify_matched",
+        "value_set": [
+          0,
+          1
+        ]
+      },
+      "meta": {
+        "rule_id": "PR-05",
+        "layer": "prepared",
+        "dataset": "fact_grammy_nomination"
+      },
+      "id": "b365f394-ccfc-47ce-a204-2084d4ddc676",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "track_key",
+        "row_condition": {
+          "pass_through_filter": "spotify_matched==1",
+          "type": "pass_through"
+        },
+        "condition_parser": "pandas",
+        "min_value": 1.0
+      },
+      "meta": {
+        "rule_id": "PR-05",
+        "layer": "prepared",
+        "dataset": "fact_grammy_nomination"
+      },
+      "id": "27c39a54-4269-4239-a5c0-58adf252b1e6",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "track_key",
+        "row_condition": {
+          "pass_through_filter": "spotify_matched==0",
+          "type": "pass_through"
+        },
+        "condition_parser": "pandas",
+        "value_set": [
+          -1
+        ]
+      },
+      "meta": {
+        "rule_id": "PR-05",
+        "layer": "prepared",
+        "dataset": "fact_grammy_nomination"
+      },
+      "id": "152cc111-cddb-4a5e-b58c-35a2ef41d318",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "popularity",
+        "row_condition": {
+          "pass_through_filter": "spotify_matched==1",
+          "type": "pass_through"
+        },
+        "condition_parser": "pandas"
+      },
+      "meta": {
+        "rule_id": "PR-05",
+        "layer": "prepared",
+        "dataset": "fact_grammy_nomination"
+      },
+      "id": "18e77417-fc9c-49d6-b436-9c7441090e76",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "popularity",
+        "row_condition": {
+          "pass_through_filter": "spotify_matched==1",
+          "type": "pass_through"
+        },
+        "condition_parser": "pandas",
+        "min_value": 0.0,
+        "max_value": 100.0
+      },
+      "meta": {
+        "rule_id": "PR-06",
+        "layer": "prepared",
+        "dataset": "fact_grammy_nomination"
+      },
+      "id": "6e8971a7-c4d6-4300-99fc-90c1144b5868",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "danceability",
+        "row_condition": {
+          "pass_through_filter": "spotify_matched==1",
+          "type": "pass_through"
+        },
+        "condition_parser": "pandas",
+        "min_value": 0.0,
+        "max_value": 1.0
+      },
+      "meta": {
+        "rule_id": "PR-06",
+        "layer": "prepared",
+        "dataset": "fact_grammy_nomination"
+      },
+      "id": "d82c48c0-8a04-4094-98c6-077996068a1d",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "energy",
+        "row_condition": {
+          "pass_through_filter": "spotify_matched==1",
+          "type": "pass_through"
+        },
+        "condition_parser": "pandas",
+        "min_value": 0.0,
+        "max_value": 1.0
+      },
+      "meta": {
+        "rule_id": "PR-06",
+        "layer": "prepared",
+        "dataset": "fact_grammy_nomination"
+      },
+      "id": "af937f4d-e020-43cc-842e-07abe5e8b376",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "valence",
+        "row_condition": {
+          "pass_through_filter": "spotify_matched==1",
+          "type": "pass_through"
+        },
+        "condition_parser": "pandas",
+        "min_value": 0.0,
+        "max_value": 1.0
+      },
+      "meta": {
+        "rule_id": "PR-06",
+        "layer": "prepared",
+        "dataset": "fact_grammy_nomination"
+      },
+      "id": "f7ff87a1-770f-4f6f-b0a9-1e875dc52b8f",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "acousticness",
+        "row_condition": {
+          "pass_through_filter": "spotify_matched==1",
+          "type": "pass_through"
+        },
+        "condition_parser": "pandas",
+        "min_value": 0.0,
+        "max_value": 1.0
+      },
+      "meta": {
+        "rule_id": "PR-06",
+        "layer": "prepared",
+        "dataset": "fact_grammy_nomination"
+      },
+      "id": "a431c912-85de-4f4d-b183-05907e497145",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "loudness",
+        "row_condition": {
+          "pass_through_filter": "spotify_matched==1",
+          "type": "pass_through"
+        },
+        "condition_parser": "pandas",
+        "min_value": -60.0,
+        "max_value": 5.0
+      },
+      "meta": {
+        "rule_id": "PR-07",
+        "layer": "prepared",
+        "dataset": "fact_grammy_nomination"
+      },
+      "id": "7d570a6e-6976-48d1-8295-3e992b4b09c2",
+      "severity": "warning"
+    },
+    {
+      "type": "expect_table_row_count_to_equal",
+      "kwargs": {
+        "value": 0
+      },
+      "meta": {
+        "rule_id": "PR-08",
+        "layer": "prepared",
+        "dataset": "fact_grammy_nomination"
+      },
+      "id": "f47570bf-3d68-4fb5-baa8-57fb5aec7f28",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "match_candidates",
+        "mostly": 0.5,
+        "row_condition": {
+          "pass_through_filter": "spotify_matched==1",
+          "type": "pass_through"
+        },
+        "condition_parser": "pandas",
+        "min_value": 1.0,
+        "max_value": 1.0
+      },
+      "meta": {
+        "rule_id": "PR-09",
+        "layer": "prepared",
+        "dataset": "fact_grammy_nomination"
+      },
+      "id": "fa7ed67c-1775-489d-9551-b4e0228ad9f5",
+      "severity": "warning"
+    },
+    {
+      "type": "expect_column_sum_to_be_between",
+      "kwargs": {
+        "column": "spotify_matched",
+        "min_value": 100.0
+      },
+      "meta": {
+        "rule_id": "PR-10",
+        "layer": "prepared",
+        "dataset": "fact_grammy_nomination"
+      },
+      "id": "c92429a0-3f8d-4427-8449-c71321e7e0c0",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "match_status",
+        "value_set": [
+          "matched",
+          "unmatched_no_title_candidate",
+          "unmatched_artist_mismatch",
+          "not_matchable_album_or_person",
+          "not_matchable_missing_artist"
+        ]
+      },
+      "meta": {
+        "rule_id": "PR-11",
+        "layer": "prepared",
+        "dataset": "fact_grammy_nomination"
+      },
+      "id": "bf98c7de-6b30-4d3b-a328-92a99145c051",
+      "severity": "critical"
+    }
+  ],
+  "meta": {
+    "great_expectations_version": "1.23.1"
+  },
+  "notes": null
+}

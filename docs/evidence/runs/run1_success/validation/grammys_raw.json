@@ -1,0 +1,295 @@
+{
+  "gate": "grammys_raw",
+  "layer": "raw",
+  "run_id": "manual__2026-10-08T21:57:37.585369+00:00",
+  "batch_key": null,
+  "evaluated_at_utc": "2026-10-08T21:57:56+00:00",
+  "rows_evaluated": {
+    "grammys_raw": 4810
+  },
+  "expectation_suites": [
+    "grammys_raw_raw_suite"
+  ],
+  "checkpoints": [
+    "grammys_raw_raw_checkpoint"
+  ],
+  "statistics": {
+    "evaluated_expectations": 12,
+    "successful_expectations": 11,
+    "unsuccessful_expectations": 1
+  },
+  "overall_success": false,
+  "max_failed_severity": "warning",
+  "decision": "CONTINUE_WITH_WARNING",
+  "failed_rules": [
+    "GR-08"
+  ],
+  "failed_critical_rules": [],
+  "failed_warning_rules": [
+    "GR-08"
+  ],
+  "failed_info_rules": [],
+  "results": [
+    {
+      "rule_id": "GR-01",
+      "layer": "raw",
+      "dataset": "grammys_raw",
+      "expectation_type": "ExpectTableColumnsToMatchSet",
+      "parameters": {
+        "column_set": [
+          "year",
+          "title",
+          "category",
+          "nominee",
+          "artist",
+          "winner"
+        ],
+        "exact_match": false
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": null,
+      "unexpected_count": null,
+      "unexpected_percent": null,
+      "observed_value": [
+        "artist",
+        "category",
+        "img",
+        "nominee",
+        "published_at",
+        "row_id",
+        "title",
+        "updated_at",
+        "winner",
+        "workers",
+        "year"
+      ],
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "GR-02",
+      "layer": "raw",
+      "dataset": "grammys_raw",
+      "expectation_type": "ExpectTableRowCountToBeBetween",
+      "parameters": {
+        "min_value": 1000,
+        "max_value": 100000
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": null,
+      "unexpected_count": null,
+      "unexpected_percent": null,
+      "observed_value": 4810,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "GR-03",
+      "layer": "raw",
+      "dataset": "grammys_raw",
+      "expectation_type": "ExpectColumnValuesToNotBeNull",
+      "parameters": {
+        "column": "year"
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 4810,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "GR-03",
+      "layer": "raw",
+      "dataset": "grammys_raw",
+      "expectation_type": "ExpectColumnValuesToBeBetween",
+      "parameters": {
+        "column": "year",
+        "min_value": 1958.0,
+        "max_value": 2026.0
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 4810,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "GR-04",
+      "layer": "raw",
+      "dataset": "grammys_raw",
+      "expectation_type": "ExpectColumnValuesToNotBeNull",
+      "parameters": {
+        "column": "category"
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 4810,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "GR-05",
+      "layer": "raw",
+      "dataset": "grammys_raw",
+      "expectation_type": "ExpectColumnValuesToNotBeNull",
+      "parameters": {
+        "column": "nominee",
+        "mostly": 0.99
+      },
+      "severity": "warning",
+      "success": true,
+      "element_count": 4810,
+      "unexpected_count": 6,
+      "unexpected_percent": 0.1247,
+      "observed_value": null,
+      "partial_unexpected_list": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "error": null
+    },
+    {
+      "rule_id": "GR-06",
+      "layer": "raw",
+      "dataset": "grammys_raw",
+      "expectation_type": "ExpectColumnValuesToNotBeNull",
+      "parameters": {
+        "column": "artist",
+        "mostly": 0.5
+      },
+      "severity": "warning",
+      "success": true,
+      "element_count": 4810,
+      "unexpected_count": 1840,
+      "unexpected_percent": 38.2536,
+      "observed_value": null,
+      "partial_unexpected_list": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "error": null
+    },
+    {
+      "rule_id": "GR-07",
+      "layer": "raw",
+      "dataset": "grammys_raw",
+      "expectation_type": "ExpectColumnValuesToNotBeNull",
+      "parameters": {
+        "column": "winner"
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 4810,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "GR-07",
+      "layer": "raw",
+      "dataset": "grammys_raw",
+      "expectation_type": "ExpectColumnValuesToBeInSet",
+      "parameters": {
+        "column": "winner",
+        "value_set": [
+          true,
+          false
+        ]
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 4810,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "GR-08",
+      "layer": "raw",
+      "dataset": "grammys_raw",
+      "expectation_type": "ExpectColumnDistinctValuesToContainSet",
+      "parameters": {
+        "column": "winner",
+        "value_set": [
+          true,
+          false
+        ]
+      },
+      "severity": "warning",
+      "success": false,
+      "element_count": null,
+      "unexpected_count": null,
+      "unexpected_percent": null,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "GR-09",
+      "layer": "raw",
+      "dataset": "grammys_raw",
+      "expectation_type": "ExpectCompoundColumnsToBeUnique",
+      "parameters": {
+        "column_list": [
+          "year",
+          "category",
+          "nominee",
+          "artist"
+        ]
+      },
+      "severity": "critical",
+      "success": true,
+      "element_count": 4810,
+      "unexpected_count": 0,
+      "unexpected_percent": 0.0,
+      "observed_value": null,
+      "partial_unexpected_list": [],
+      "error": null
+    },
+    {
+      "rule_id": "GR-10",
+      "layer": "raw",
+      "dataset": "grammys_raw",
+      "expectation_type": "ExpectColumnUniqueValueCountToBeBetween",
+      "parameters": {
+        "column": "year",
+        "min_value": 60
+      },
+      "severity": "warning",
+      "success": true,
+      "element_count": null,
+      "unexpected_count": null,
+      "unexpected_percent": null,
+      "observed_value": 62,
+      "partial_unexpected_list": [],
+      "error": null
+    }
+  ]
+}

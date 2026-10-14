@@ -1,0 +1,50 @@
+# run2_critical_failure  (run dir: manual__2026-10-08T21_58_16.417331_00_00)
+21:58:20 INFO    [extract_grammys] table=public.grammy_awards db_count=4810 rows_read=4810 -> /tmp/wdata/work/manual__2026-10-08T21_58_16.417331_00_00/raw/grammys_raw.csv
+21:58:24 INFO    [extract_spotify] source=spotify_dataset_bad.csv rows=114000 columns=21 -> /tmp/wdata/work/manual__2026-10-08T21_58_16.417331_00_00/raw/spotify_raw.csv
+21:58:32 INFO    === GX validation gate: spotify_raw ===
+21:58:32 INFO    [PASS] SP-01  critical ExpectTableColumnsToMatchSet           spotify_raw observed=['Unnamed: 0', 'acousticness', 'album_name', 'artists', 'danceability', 'duratio
+21:58:32 INFO    [PASS] SP-02  critical ExpectTableRowCountToBeBetween         spotify_raw observed=114000
+21:58:32 INFO    [PASS] SP-03  critical ExpectColumnValuesToNotBeNull          track_id unexpected=0 (0.0%)
+21:58:32 INFO    [PASS] SP-04  warning  ExpectCompoundColumnsToBeUnique        spotify_raw unexpected=894 (0.7842%)
+21:58:32 INFO    [PASS] SP-05  critical ExpectColumnValuesToNotBeNull          popularity unexpected=0 (0.0%)
+21:58:32 INFO    [FAIL] SP-05  critical ExpectColumnValuesToBeBetween          popularity unexpected=100 (0.0877%)
+21:58:32 INFO    [PASS] SP-06  critical ExpectColumnValuesToBeBetween          danceability unexpected=0 (0.0%)
+21:58:32 INFO    [PASS] SP-06  critical ExpectColumnValuesToBeBetween          energy unexpected=0 (0.0%)
+21:58:32 INFO    [PASS] SP-06  critical ExpectColumnValuesToBeBetween          valence unexpected=0 (0.0%)
+21:58:32 INFO    [PASS] SP-07  warning  ExpectColumnValuesToBeBetween          loudness unexpected=0 (0.0%)
+21:58:32 INFO    [PASS] SP-08  warning  ExpectColumnValuesToNotBeNull          track_name unexpected=1 (0.0009%)
+21:58:32 INFO    [PASS] SP-08  warning  ExpectColumnValuesToNotBeNull          artists unexpected=1 (0.0009%)
+21:58:32 INFO    [PASS] SP-09  critical ExpectColumnValuesToNotBeNull          track_genre unexpected=0 (0.0%)
+21:58:32 INFO    [PASS] SP-10  warning  ExpectColumnValuesToBeBetween          tempo unexpected=157 (0.1377%)
+21:58:32 INFO    [PASS] SP-10  warning  ExpectColumnValuesToBeBetween          duration_ms unexpected=1 (0.0009%)
+21:58:32 INFO    [PASS] SP-11  warning  ExpectColumnValuesToBeInSet            explicit unexpected=0 (0.0%)
+21:58:32 INFO    [PASS] SP-12  info     ExpectColumnUniqueValueCountToBeBetween track_genre observed=114
+21:58:32 INFO    Gate spotify_raw -> max failed severity=critical | decision=STOP | failed rules=['SP-05']
+21:58:32 INFO    Validation evidence stored in /tmp/wdata/work/manual__2026-10-08T21_58_16.417331_00_00/validation/spotify_raw.json
+raise DataQualityGateError(
+src.errors.DataQualityGateError: Validation gate 'spotify_raw' failed with CRITICAL severity (rules ['SP-05']). Downstream tasks are blocked. Evidence: /tmp/wdata/work/manual__2026-10-08T21_58_16.417331_00_00/validation/spotify_raw.json
+21:58:34 INFO    === GX validation gate: grammys_raw ===
+21:58:34 INFO    [PASS] GR-01  critical ExpectTableColumnsToMatchSet           grammys_raw observed=['artist', 'category', 'img', 'nominee', 'published_at', 'row_id', 'title', 'upd
+21:58:34 INFO    [PASS] GR-02  critical ExpectTableRowCountToBeBetween         grammys_raw observed=4810
+21:58:34 INFO    [PASS] GR-03  critical ExpectColumnValuesToNotBeNull          year unexpected=0 (0.0%)
+21:58:34 INFO    [PASS] GR-03  critical ExpectColumnValuesToBeBetween          year unexpected=0 (0.0%)
+21:58:34 INFO    [PASS] GR-04  critical ExpectColumnValuesToNotBeNull          category unexpected=0 (0.0%)
+21:58:34 INFO    [PASS] GR-05  warning  ExpectColumnValuesToNotBeNull          nominee unexpected=6 (0.1247%)
+21:58:34 INFO    [PASS] GR-06  warning  ExpectColumnValuesToNotBeNull          artist unexpected=1840 (38.2536%)
+21:58:34 INFO    [PASS] GR-07  critical ExpectColumnValuesToNotBeNull          winner unexpected=0 (0.0%)
+21:58:34 INFO    [PASS] GR-07  critical ExpectColumnValuesToBeInSet            winner unexpected=0 (0.0%)
+21:58:34 INFO    [FAIL] GR-08  warning  ExpectColumnDistinctValuesToContainSet winner
+21:58:34 INFO    [PASS] GR-09  critical ExpectCompoundColumnsToBeUnique        grammys_raw unexpected=0 (0.0%)
+21:58:34 INFO    [PASS] GR-10  warning  ExpectColumnUniqueValueCountToBeBetween year observed=62
+21:58:34 INFO    Gate grammys_raw -> max failed severity=warning | decision=CONTINUE_WITH_WARNING | failed rules=['GR-08']
+21:58:34 INFO    Validation evidence stored in /tmp/wdata/work/manual__2026-10-08T21_58_16.417331_00_00/validation/grammys_raw.json
+21:58:34 WARNING Gate 'grammys_raw' has WARNING-level failures ['GR-08']; documented policy allows continuing.
+DAGRUN_STATE failed
+TI extract_spotify success
+TI extract_grammys success
+TI validate_spotify_raw failed
+TI validate_grammys_raw success
+TI transform_and_integrate upstream_failed
+TI validate_prepared upstream_failed
+TI load_dw upstream_failed
+TI publish_run_summary upstream_failed

@@ -1,0 +1,8 @@
+# LOCAL authoring / profiling / tests (Python 3.12 virtual environment, same as the class)
+-r requirements.txt
+apache-airflow-task-sdk==1.1.8     # only for DAG authoring support in VS Code (as in Activity 2)
+pytest>=8
+matplotlib>=3.8
+nbformat>=5.9
+nbconvert>=7.16
+ipykernel>=6.29

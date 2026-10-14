@@ -1,0 +1,88 @@
+{
+  "name": "dim_year_prepared_suite",
+  "id": "11492e4f-7ae5-439b-b764-1509c02bb585",
+  "expectations": [
+    {
+      "type": "expect_table_columns_to_match_set",
+      "kwargs": {
+        "column_set": [
+          "year_key",
+          "decade",
+          "decade_label",
+          "ceremony_title",
+          "coverage_type",
+          "records_per_category"
+        ]
+      },
+      "meta": {
+        "rule_id": "PR-01",
+        "layer": "prepared",
+        "dataset": "dim_year"
+      },
+      "id": "782b6582-1a71-47aa-93e4-717861ea3661",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "year_key"
+      },
+      "meta": {
+        "rule_id": "PR-02",
+        "layer": "prepared",
+        "dataset": "dim_year"
+      },
+      "id": "9a527de2-8b38-4fce-b49e-b8a732cdbc8f",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "year_key"
+      },
+      "meta": {
+        "rule_id": "PR-02",
+        "layer": "prepared",
+        "dataset": "dim_year"
+      },
+      "id": "b8771ac2-f85e-4ea7-a8a9-647433cbb644",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "coverage_type",
+        "value_set": [
+          "winners_only",
+          "all_nominees"
+        ]
+      },
+      "meta": {
+        "rule_id": "PR-11",
+        "layer": "prepared",
+        "dataset": "dim_year"
+      },
+      "id": "43aa1dc1-0bbd-4cda-b072-673ffead2cb0",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "year_key",
+        "min_value": 1958.0,
+        "max_value": 2026.0
+      },
+      "meta": {
+        "rule_id": "PR-14",
+        "layer": "prepared",
+        "dataset": "dim_year"
+      },
+      "id": "71d38d9f-bf9f-43c0-aa84-b130d041605e",
+      "severity": "critical"
+    }
+  ],
+  "meta": {
+    "great_expectations_version": "1.23.1"
+  },
+  "notes": null
+}

@@ -1,0 +1,5 @@
+ duplicated_nomination_bk | orphan_track_fk 
+--------------------------+-----------------
+                        0 |               0
+(1 row)
+

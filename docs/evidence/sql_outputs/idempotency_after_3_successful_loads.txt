@@ -1,0 +1,16 @@
+    batch_key     | load_count |               first_run_id               |               last_run_id                
+------------------+------------+------------------------------------------+------------------------------------------
+ 3b2af2cc7c62ce72 |          3 | manual__2026-10-08T21:57:37.585369+00:00 | manual__2026-10-08T21:59:23.921431+00:00
+(1 row)
+
+              t              | count 
+-----------------------------+-------
+ fact_grammy_nomination      |  4804
+ dim_track                   |   223
+ dim_category                |   626
+ dim_genre                   |   114
+ dim_year                    |    62
+ fact_catalog_genre_baseline |   113
+ audit_validation_result     |    73
+(7 rows)
+

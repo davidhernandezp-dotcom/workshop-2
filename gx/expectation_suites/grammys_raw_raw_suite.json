@@ -1,0 +1,194 @@
+{
+  "name": "grammys_raw_raw_suite",
+  "id": "d85e00ce-d6af-4abd-93b6-5187dd9e4e4d",
+  "expectations": [
+    {
+      "type": "expect_table_columns_to_match_set",
+      "kwargs": {
+        "column_set": [
+          "year",
+          "title",
+          "category",
+          "nominee",
+          "artist",
+          "winner"
+        ],
+        "exact_match": false
+      },
+      "meta": {
+        "rule_id": "GR-01",
+        "layer": "raw",
+        "dataset": "grammys_raw"
+      },
+      "id": "40fd84cb-1432-4ef8-9679-fa2ae9810a46",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_table_row_count_to_be_between",
+      "kwargs": {
+        "min_value": 1000,
+        "max_value": 100000
+      },
+      "meta": {
+        "rule_id": "GR-02",
+        "layer": "raw",
+        "dataset": "grammys_raw"
+      },
+      "id": "bd997f70-75fc-4b04-b57f-4b4b40f5b663",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "year"
+      },
+      "meta": {
+        "rule_id": "GR-03",
+        "layer": "raw",
+        "dataset": "grammys_raw"
+      },
+      "id": "0253b828-05b5-4684-9775-d0e193d9311d",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "year",
+        "min_value": 1958.0,
+        "max_value": 2026.0
+      },
+      "meta": {
+        "rule_id": "GR-03",
+        "layer": "raw",
+        "dataset": "grammys_raw"
+      },
+      "id": "b8508a3e-a218-4326-8bc7-62b06bc36e6d",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "category"
+      },
+      "meta": {
+        "rule_id": "GR-04",
+        "layer": "raw",
+        "dataset": "grammys_raw"
+      },
+      "id": "2d0a7cc1-ce1c-4431-9bdb-d11cf791b3cd",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "nominee",
+        "mostly": 0.99
+      },
+      "meta": {
+        "rule_id": "GR-05",
+        "layer": "raw",
+        "dataset": "grammys_raw"
+      },
+      "id": "d7932acf-a2b9-4b46-8ab8-5cb8038eb55f",
+      "severity": "warning"
+    },
+    {
+      "type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "artist",
+        "mostly": 0.5
+      },
+      "meta": {
+        "rule_id": "GR-06",
+        "layer": "raw",
+        "dataset": "grammys_raw"
+      },
+      "id": "e1c70583-d496-4537-973d-719aed023505",
+      "severity": "warning"
+    },
+    {
+      "type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "winner"
+      },
+      "meta": {
+        "rule_id": "GR-07",
+        "layer": "raw",
+        "dataset": "grammys_raw"
+      },
+      "id": "3fca4916-9fa9-42d1-9427-178b7f6401c9",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "winner",
+        "value_set": [
+          true,
+          false
+        ]
+      },
+      "meta": {
+        "rule_id": "GR-07",
+        "layer": "raw",
+        "dataset": "grammys_raw"
+      },
+      "id": "15f316f2-12c0-4a59-9972-c5b52384c6e7",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_distinct_values_to_contain_set",
+      "kwargs": {
+        "column": "winner",
+        "value_set": [
+          true,
+          false
+        ]
+      },
+      "meta": {
+        "rule_id": "GR-08",
+        "layer": "raw",
+        "dataset": "grammys_raw"
+      },
+      "id": "d0ae8a3a-22d0-40d0-b907-9b2b9770ae63",
+      "severity": "warning"
+    },
+    {
+      "type": "expect_compound_columns_to_be_unique",
+      "kwargs": {
+        "column_list": [
+          "year",
+          "category",
+          "nominee",
+          "artist"
+        ],
+        "ignore_row_if": "never"
+      },
+      "meta": {
+        "rule_id": "GR-09",
+        "layer": "raw",
+        "dataset": "grammys_raw"
+      },
+      "id": "e3e01255-314a-4a2d-8fba-f190949e91d7",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_unique_value_count_to_be_between",
+      "kwargs": {
+        "column": "year",
+        "min_value": 60
+      },
+      "meta": {
+        "rule_id": "GR-10",
+        "layer": "raw",
+        "dataset": "grammys_raw"
+      },
+      "id": "4ae1a72b-4188-4880-b0c3-df8e25c6d828",
+      "severity": "warning"
+    }
+  ],
+  "meta": {
+    "great_expectations_version": "1.23.1"
+  },
+  "notes": null
+}

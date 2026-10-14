@@ -1,0 +1,278 @@
+{
+  "name": "spotify_raw_raw_suite",
+  "id": "b689c967-94d2-44e4-845a-2c6280ba8622",
+  "expectations": [
+    {
+      "type": "expect_table_columns_to_match_set",
+      "kwargs": {
+        "column_set": [
+          "track_id",
+          "artists",
+          "album_name",
+          "track_name",
+          "popularity",
+          "duration_ms",
+          "explicit",
+          "danceability",
+          "energy",
+          "loudness",
+          "acousticness",
+          "valence",
+          "tempo",
+          "track_genre"
+        ],
+        "exact_match": false
+      },
+      "meta": {
+        "rule_id": "SP-01",
+        "layer": "raw",
+        "dataset": "spotify_raw"
+      },
+      "id": "7d765af8-6aa3-4eb5-8b27-341ebd3ba9bf",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_table_row_count_to_be_between",
+      "kwargs": {
+        "min_value": 50000,
+        "max_value": 500000
+      },
+      "meta": {
+        "rule_id": "SP-02",
+        "layer": "raw",
+        "dataset": "spotify_raw"
+      },
+      "id": "be179aaa-eb9d-4269-a6d9-67744f58b22b",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "track_id"
+      },
+      "meta": {
+        "rule_id": "SP-03",
+        "layer": "raw",
+        "dataset": "spotify_raw"
+      },
+      "id": "c7623044-1930-48ec-a3d3-f3ce66a65b57",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_compound_columns_to_be_unique",
+      "kwargs": {
+        "column_list": [
+          "track_id",
+          "track_genre"
+        ],
+        "mostly": 0.99,
+        "ignore_row_if": "never"
+      },
+      "meta": {
+        "rule_id": "SP-04",
+        "layer": "raw",
+        "dataset": "spotify_raw"
+      },
+      "id": "7928efc2-05c8-4263-8ba0-29b2faeec190",
+      "severity": "warning"
+    },
+    {
+      "type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "popularity"
+      },
+      "meta": {
+        "rule_id": "SP-05",
+        "layer": "raw",
+        "dataset": "spotify_raw"
+      },
+      "id": "006e363c-1cb0-4658-bc5b-7c3413ec42c2",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "popularity",
+        "min_value": 0.0,
+        "max_value": 100.0
+      },
+      "meta": {
+        "rule_id": "SP-05",
+        "layer": "raw",
+        "dataset": "spotify_raw"
+      },
+      "id": "901a0e3a-686c-4395-9755-5b5a5b643dae",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "danceability",
+        "min_value": 0.0,
+        "max_value": 1.0
+      },
+      "meta": {
+        "rule_id": "SP-06",
+        "layer": "raw",
+        "dataset": "spotify_raw"
+      },
+      "id": "1f99ec0b-40ef-48bd-9238-2b85248a808b",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "energy",
+        "min_value": 0.0,
+        "max_value": 1.0
+      },
+      "meta": {
+        "rule_id": "SP-06",
+        "layer": "raw",
+        "dataset": "spotify_raw"
+      },
+      "id": "5597ac41-a457-4e34-9b63-5cf3fc431bdf",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "valence",
+        "min_value": 0.0,
+        "max_value": 1.0
+      },
+      "meta": {
+        "rule_id": "SP-06",
+        "layer": "raw",
+        "dataset": "spotify_raw"
+      },
+      "id": "492b79dc-1ad2-4f45-b1c7-1cfb51e49b4e",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "loudness",
+        "mostly": 0.999,
+        "min_value": -60.0,
+        "max_value": 5.0
+      },
+      "meta": {
+        "rule_id": "SP-07",
+        "layer": "raw",
+        "dataset": "spotify_raw"
+      },
+      "id": "d0681e60-2d56-485f-9808-cd5ed4e23c38",
+      "severity": "warning"
+    },
+    {
+      "type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "track_name",
+        "mostly": 0.999
+      },
+      "meta": {
+        "rule_id": "SP-08",
+        "layer": "raw",
+        "dataset": "spotify_raw"
+      },
+      "id": "94b561d6-9aa0-4fa1-aedf-1bc17b5e3efa",
+      "severity": "warning"
+    },
+    {
+      "type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "artists",
+        "mostly": 0.999
+      },
+      "meta": {
+        "rule_id": "SP-08",
+        "layer": "raw",
+        "dataset": "spotify_raw"
+      },
+      "id": "d80a4c2f-a3c9-4b67-8867-c4e02bea99d6",
+      "severity": "warning"
+    },
+    {
+      "type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "track_genre"
+      },
+      "meta": {
+        "rule_id": "SP-09",
+        "layer": "raw",
+        "dataset": "spotify_raw"
+      },
+      "id": "8ddbbcbe-e942-493e-a01d-09a5d7f683e2",
+      "severity": "critical"
+    },
+    {
+      "type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "tempo",
+        "mostly": 0.995,
+        "min_value": 0.0,
+        "strict_min": true
+      },
+      "meta": {
+        "rule_id": "SP-10",
+        "layer": "raw",
+        "dataset": "spotify_raw"
+      },
+      "id": "e9414b9b-5db7-44a5-a2ff-c5fbe35fe3ea",
+      "severity": "warning"
+    },
+    {
+      "type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "duration_ms",
+        "mostly": 0.999,
+        "min_value": 0.0,
+        "strict_min": true
+      },
+      "meta": {
+        "rule_id": "SP-10",
+        "layer": "raw",
+        "dataset": "spotify_raw"
+      },
+      "id": "60cee1a2-7b93-4714-b515-5e5afc6abe65",
+      "severity": "warning"
+    },
+    {
+      "type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "explicit",
+        "value_set": [
+          true,
+          false
+        ]
+      },
+      "meta": {
+        "rule_id": "SP-11",
+        "layer": "raw",
+        "dataset": "spotify_raw"
+      },
+      "id": "961a4a4f-7666-4cf3-a551-05d75748f160",
+      "severity": "warning"
+    },
+    {
+      "type": "expect_column_unique_value_count_to_be_between",
+      "kwargs": {
+        "column": "track_genre",
+        "min_value": 100,
+        "max_value": 130
+      },
+      "meta": {
+        "rule_id": "SP-12",
+        "layer": "raw",
+        "dataset": "spotify_raw"
+      },
+      "id": "ee98ad67-f5a0-4976-aaa4-bb2e528cbe56",
+      "severity": "info"
+    }
+  ],
+  "meta": {
+    "great_expectations_version": "1.23.1"
+  },
+  "notes": null
+}

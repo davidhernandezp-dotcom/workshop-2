@@ -1,0 +1,31 @@
+{
+  "dataset": "spotify",
+  "source": "/tmp/wdata/raw/spotify_dataset.csv",
+  "source_sha256": "b202fa49909b2d5cef71a04b1d21243cfeb36414535f2ca9272aa646721177bd",
+  "rows": 114000,
+  "columns": [
+    "Unnamed: 0",
+    "track_id",
+    "artists",
+    "album_name",
+    "track_name",
+    "popularity",
+    "duration_ms",
+    "explicit",
+    "danceability",
+    "energy",
+    "key",
+    "loudness",
+    "mode",
+    "speechiness",
+    "acousticness",
+    "instrumentalness",
+    "liveness",
+    "valence",
+    "tempo",
+    "time_signature",
+    "track_genre"
+  ],
+  "raw_path": "/tmp/wdata/work/manual__2026-10-08T21_59_23.921431_00_00/raw/spotify_raw.csv",
+  "extracted_at_utc": "2026-10-08T21:59:32+00:00"
+}

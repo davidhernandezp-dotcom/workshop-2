@@ -1,0 +1,12 @@
+finding,risk,dimension,rule,decision
+"Spotify grain is track x genre (24,259 repeated track_id)",Counting rows as tracks double-counts songs,Uniqueness,SP-04 (warning),TRANSFORM: collapse to one row per track; primary genre = highest-popularity copy
+"450 exact duplicate (track_id, genre) pairs",Inflated genre baseline,Uniqueness,"SP-04 (warning, >=99%)","TRANSFORM: drop exact repeats, log count"
+1 row with no track_name / artists / album,Cannot be matched or labelled,Completeness,SP-08 (warning),"TRANSFORM: drop, log count"
+157 rows tempo = danceability = speechiness = time_signature = 0 (audio analysis failed),Impossible values bias AR2 averages,Validity,SP-10 (warning),"TRANSFORM: tempo, danceability, valence -> NULL (not imputed)"
+popularity / audio features inside documented scales,One out-of-scale value corrupts KPIs,Validity,"SP-05, SP-06 (critical)",RAW GATE: stop; never auto-correct
+14% popularity = 0,Looks suspicious,Accuracy (n/a),none,KEEP: valid value of the scale
+Grammy winner = True in 100% of rows; 2019 lists all nominees,Winners cannot be distinguished; grain differs by year,Consistency,"GR-08 (warning, expected to fail)",DESIGN: do not use winner; dim_year.coverage_type
+38% artist missing (songwriter / composer / technical categories),Matching impossible for those rows,Completeness,"GR-06 (warning, >=50%)",TRANSFORM: recover from same year+title for matching only; flag status
+"6 nominee missing (4 Remixer, 2 New Country & Western Artist)",Unidentifiable record,Completeness,GR-05 (warning),"TRANSFORM: drop, log count"
+638 category spellings vs 629 case-folded,Fragmented dim_category,Consistency,"PR-02 (critical, unique category_name)",TRANSFORM: canonical spelling = most frequent
+No shared key between sources,Integration is approximate,Consistency,"PR-05, PR-08, PR-09, PR-10",TRANSFORM: normalised title + artist; monitor coverage

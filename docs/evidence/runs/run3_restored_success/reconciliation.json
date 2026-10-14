@@ -1,0 +1,47 @@
+{
+  "spotify": {
+    "rows_in": 114000,
+    "dropped_missing_identity": 1,
+    "dropped_duplicate_track_genre_pairs": 450,
+    "audio_analysis_failed_rows": 157,
+    "tempo_set_null_other": 0,
+    "duration_set_null": 0,
+    "track_genre_rows_after_dedup": 113549,
+    "tracks_out": 89740,
+    "tracks_in_several_genres": 16299
+  },
+  "grammys": {
+    "rows_in": 4810,
+    "dropped_missing_nominee": 6,
+    "category_spellings_raw": 638,
+    "categories_harmonised": 626,
+    "dropped_duplicate_business_key": 0,
+    "artist_missing_before_recovery": 1834,
+    "artist_missing_after_recovery": 1580,
+    "rows_out": 4804
+  },
+  "integration": {
+    "rule": "title key equality + any Spotify artist contained in the Grammy artist string; multiple candidates -> highest popularity, tie -> smallest track_id",
+    "status_counts": {
+      "not_matchable_album_or_person": 1773,
+      "unmatched_no_title_candidate": 1268,
+      "not_matchable_missing_artist": 1047,
+      "unmatched_artist_mismatch": 412,
+      "matched": 304
+    },
+    "matched_nominations": 304,
+    "match_rate_pct": 6.33,
+    "matched_with_more_than_one_candidate": 115,
+    "distinct_tracks_matched": 222
+  },
+  "prepared_rows": {
+    "dim_year": 62,
+    "dim_category": 626,
+    "dim_genre": 114,
+    "dim_track": 223,
+    "fact_grammy_nomination": 4804,
+    "fact_catalog_genre_baseline": 113
+  },
+  "batch_key": "3b2af2cc7c62ce72",
+  "generated_at_utc": "2026-10-08T21:59:09+00:00"
+}

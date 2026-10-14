@@ -1,0 +1,22 @@
+{
+  "dataset": "grammys",
+  "source": "postgresql://localhost/grammy_source.public.grammy_awards_bad",
+  "source_sha256": "f0b2050fb624dacb5df9859db0d7815c1bb1dc3d80d4d422dbc2070261e8d5e5",
+  "rows": 4810,
+  "db_count": 4810,
+  "columns": [
+    "row_id",
+    "year",
+    "title",
+    "published_at",
+    "updated_at",
+    "category",
+    "nominee",
+    "artist",
+    "workers",
+    "img",
+    "winner"
+  ],
+  "raw_path": "/tmp/wdata/work/manual__2026-10-08T22_00_03.877314_00_00/raw/grammys_raw.csv",
+  "extracted_at_utc": "2026-10-08T22:00:07+00:00"
+}

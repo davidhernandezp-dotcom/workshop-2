@@ -1,0 +1,74 @@
+rule_id,layer,dataset,severity,expectation_class,parameters
+SP-01,raw,spotify_raw,critical,ExpectTableColumnsToMatchSet,"column_set=[14 values], exact_match=False"
+SP-02,raw,spotify_raw,critical,ExpectTableRowCountToBeBetween,"min_value=50000, max_value=500000"
+SP-03,raw,spotify_raw,critical,ExpectColumnValuesToNotBeNull,column=track_id
+SP-04,raw,spotify_raw,warning,ExpectCompoundColumnsToBeUnique,"column_list=['track_id', 'track_genre'], mostly=0.99, ignore_row_if=never"
+SP-05,raw,spotify_raw,critical,ExpectColumnValuesToNotBeNull,column=popularity
+SP-05,raw,spotify_raw,critical,ExpectColumnValuesToBeBetween,"column=popularity, min_value=0, max_value=100"
+SP-06,raw,spotify_raw,critical,ExpectColumnValuesToBeBetween,"column=danceability, min_value=0, max_value=1"
+SP-06,raw,spotify_raw,critical,ExpectColumnValuesToBeBetween,"column=energy, min_value=0, max_value=1"
+SP-06,raw,spotify_raw,critical,ExpectColumnValuesToBeBetween,"column=valence, min_value=0, max_value=1"
+SP-07,raw,spotify_raw,warning,ExpectColumnValuesToBeBetween,"column=loudness, min_value=-60, max_value=5, mostly=0.999"
+SP-08,raw,spotify_raw,warning,ExpectColumnValuesToNotBeNull,"column=track_name, mostly=0.999"
+SP-08,raw,spotify_raw,warning,ExpectColumnValuesToNotBeNull,"column=artists, mostly=0.999"
+SP-09,raw,spotify_raw,critical,ExpectColumnValuesToNotBeNull,column=track_genre
+SP-10,raw,spotify_raw,warning,ExpectColumnValuesToBeBetween,"column=tempo, min_value=0, strict_min=True, mostly=0.995"
+SP-10,raw,spotify_raw,warning,ExpectColumnValuesToBeBetween,"column=duration_ms, min_value=0, strict_min=True, mostly=0.999"
+SP-11,raw,spotify_raw,warning,ExpectColumnValuesToBeInSet,"column=explicit, value_set=[True, False]"
+SP-12,raw,spotify_raw,info,ExpectColumnUniqueValueCountToBeBetween,"column=track_genre, min_value=100, max_value=130"
+GR-01,raw,grammys_raw,critical,ExpectTableColumnsToMatchSet,"column_set=['year', 'title', 'category', 'nominee', 'artist', 'winner'], exact_match=False"
+GR-02,raw,grammys_raw,critical,ExpectTableRowCountToBeBetween,"min_value=1000, max_value=100000"
+GR-03,raw,grammys_raw,critical,ExpectColumnValuesToNotBeNull,column=year
+GR-03,raw,grammys_raw,critical,ExpectColumnValuesToBeBetween,"column=year, min_value=1958, max_value=<run-time value>"
+GR-04,raw,grammys_raw,critical,ExpectColumnValuesToNotBeNull,column=category
+GR-05,raw,grammys_raw,warning,ExpectColumnValuesToNotBeNull,"column=nominee, mostly=0.99"
+GR-06,raw,grammys_raw,warning,ExpectColumnValuesToNotBeNull,"column=artist, mostly=0.5"
+GR-07,raw,grammys_raw,critical,ExpectColumnValuesToNotBeNull,column=winner
+GR-07,raw,grammys_raw,critical,ExpectColumnValuesToBeInSet,"column=winner, value_set=[True, False]"
+GR-08,raw,grammys_raw,warning,ExpectColumnDistinctValuesToContainSet,"column=winner, value_set=[True, False]"
+GR-09,raw,grammys_raw,critical,ExpectCompoundColumnsToBeUnique,"column_list=['year', 'category', 'nominee', 'artist'], ignore_row_if=never"
+GR-10,raw,grammys_raw,warning,ExpectColumnUniqueValueCountToBeBetween,"column=year, min_value=60"
+PR-01,prepared,dim_year,critical,ExpectTableColumnsToMatchSet,"column_set=['year_key', 'decade', 'decade_label', 'ceremony_title', 'coverage_type', 'records_per_category'], exact_match=True"
+PR-01,prepared,dim_category,critical,ExpectTableColumnsToMatchSet,"column_set=['category_key', 'category_name', 'music_family', 'nominee_type'], exact_match=True"
+PR-01,prepared,dim_genre,critical,ExpectTableColumnsToMatchSet,"column_set=['genre_key', 'genre_name'], exact_match=True"
+PR-01,prepared,dim_track,critical,ExpectTableColumnsToMatchSet,"column_set=[8 values], exact_match=True"
+PR-01,prepared,fact_grammy_nomination,critical,ExpectTableColumnsToMatchSet,"column_set=[20 values], exact_match=True"
+PR-01,prepared,fact_catalog_genre_baseline,critical,ExpectTableColumnsToMatchSet,"column_set=[9 values], exact_match=True"
+PR-02,prepared,dim_year,critical,ExpectColumnValuesToBeUnique,column=year_key
+PR-02,prepared,dim_year,critical,ExpectColumnValuesToNotBeNull,column=year_key
+PR-02,prepared,dim_category,critical,ExpectColumnValuesToBeUnique,column=category_key
+PR-02,prepared,dim_category,critical,ExpectColumnValuesToBeUnique,column=category_name
+PR-02,prepared,dim_genre,critical,ExpectColumnValuesToBeUnique,column=genre_key
+PR-02,prepared,dim_genre,critical,ExpectColumnValuesToBeUnique,column=genre_name
+PR-02,prepared,dim_track,critical,ExpectColumnValuesToBeUnique,column=track_key
+PR-02,prepared,dim_track,critical,ExpectColumnValuesToBeUnique,column=spotify_track_id
+PR-02,prepared,dim_track,critical,ExpectColumnValuesToNotBeNull,column=spotify_track_id
+PR-03,prepared,fact_grammy_nomination,critical,ExpectColumnValuesToNotBeNull,column=nomination_bk
+PR-03,prepared,fact_grammy_nomination,critical,ExpectColumnValuesToBeUnique,column=nomination_bk
+PR-03,prepared,fact_grammy_nomination,critical,ExpectColumnValuesToBeUnique,column=nomination_key
+PR-04,prepared,fact_grammy_nomination,critical,ExpectColumnValuesToBeInSet,"column=year_key, value_set=<run-time value>"
+PR-04,prepared,fact_grammy_nomination,critical,ExpectColumnValuesToBeInSet,"column=category_key, value_set=<run-time value>"
+PR-04,prepared,fact_grammy_nomination,critical,ExpectColumnValuesToBeInSet,"column=track_key, value_set=<run-time value>"
+PR-04,prepared,dim_track,critical,ExpectColumnValuesToBeInSet,"column=genre_key, value_set=<run-time value>"
+PR-04,prepared,fact_catalog_genre_baseline,critical,ExpectColumnValuesToBeInSet,"column=genre_key, value_set=<run-time value>"
+PR-05,prepared,fact_grammy_nomination,critical,ExpectColumnValuesToBeInSet,"column=spotify_matched, value_set=[0, 1]"
+PR-05,prepared,fact_grammy_nomination,critical,ExpectColumnValuesToBeBetween,"column=track_key, min_value=1, row_condition=spotify_matched==1, condition_parser=pandas"
+PR-05,prepared,fact_grammy_nomination,critical,ExpectColumnValuesToBeInSet,"column=track_key, value_set=[-1], row_condition=spotify_matched==0, condition_parser=pandas"
+PR-05,prepared,fact_grammy_nomination,critical,ExpectColumnValuesToNotBeNull,"column=popularity, row_condition=spotify_matched==1, condition_parser=pandas"
+PR-06,prepared,fact_grammy_nomination,critical,ExpectColumnValuesToBeBetween,"column=popularity, min_value=0, max_value=100, row_condition=spotify_matched==1, condition_parser=pandas"
+PR-06,prepared,fact_grammy_nomination,critical,ExpectColumnValuesToBeBetween,"column=danceability, min_value=0, max_value=1, row_condition=spotify_matched==1, condition_parser=pandas"
+PR-06,prepared,fact_grammy_nomination,critical,ExpectColumnValuesToBeBetween,"column=energy, min_value=0, max_value=1, row_condition=spotify_matched==1, condition_parser=pandas"
+PR-06,prepared,fact_grammy_nomination,critical,ExpectColumnValuesToBeBetween,"column=valence, min_value=0, max_value=1, row_condition=spotify_matched==1, condition_parser=pandas"
+PR-06,prepared,fact_grammy_nomination,critical,ExpectColumnValuesToBeBetween,"column=acousticness, min_value=0, max_value=1, row_condition=spotify_matched==1, condition_parser=pandas"
+PR-07,prepared,fact_grammy_nomination,warning,ExpectColumnValuesToBeBetween,"column=loudness, min_value=-60, max_value=5, row_condition=spotify_matched==1, condition_parser=pandas"
+PR-08,prepared,fact_grammy_nomination,critical,ExpectTableRowCountToEqual,value=<run-time value>
+PR-09,prepared,fact_grammy_nomination,warning,ExpectColumnValuesToBeBetween,"column=match_candidates, min_value=1, max_value=1, mostly=0.5, row_condition=spotify_matched==1, condition_parser=pandas"
+PR-10,prepared,fact_grammy_nomination,critical,ExpectColumnSumToBeBetween,"column=spotify_matched, min_value=100"
+PR-11,prepared,dim_category,critical,ExpectColumnValuesToBeInSet,"column=music_family, value_set=[18 values]"
+PR-11,prepared,dim_category,critical,ExpectColumnValuesToBeInSet,"column=nominee_type, value_set=['recording_or_work', 'album', 'person']"
+PR-11,prepared,dim_year,critical,ExpectColumnValuesToBeInSet,"column=coverage_type, value_set=['winners_only', 'all_nominees']"
+PR-11,prepared,fact_grammy_nomination,critical,ExpectColumnValuesToBeInSet,"column=match_status, value_set=['matched', 'unmatched_no_title_candidate', 'unmatched_artist_mismatch', 'not_matchable_album_or_person', 'not_matchable_missing_artist']"
+PR-12,prepared,dim_category,warning,ExpectColumnValuesToNotBeInSet,"column=music_family, value_set=['Other'], mostly=0.75"
+PR-13,prepared,fact_catalog_genre_baseline,critical,ExpectColumnValuesToBeBetween,"column=track_count, min_value=1"
+PR-13,prepared,fact_catalog_genre_baseline,critical,ExpectColumnValuesToBeBetween,"column=avg_popularity, min_value=0, max_value=100"
+PR-14,prepared,dim_year,critical,ExpectColumnValuesToBeBetween,"column=year_key, min_value=1958, max_value=<run-time value>"

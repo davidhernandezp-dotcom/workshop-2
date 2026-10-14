@@ -1,0 +1,73 @@
+{
+  "executed_at_utc": "2026-10-09T04:44:27+00:00",
+  "csv_file": "the_grammy_awards.csv",
+  "target_table": "public.grammy_awards",
+  "checks": {
+    "row_count": {
+      "csv": 4810,
+      "table": 4810,
+      "match": true
+    },
+    "year_sum": {
+      "csv": 9598677,
+      "table": 9598677,
+      "match": true
+    },
+    "winner_true_count": {
+      "csv": 4810,
+      "table": 4810,
+      "match": true
+    },
+    "nulls::year": {
+      "csv": 0,
+      "table": 0,
+      "match": true
+    },
+    "nulls::title": {
+      "csv": 0,
+      "table": 0,
+      "match": true
+    },
+    "nulls::published_at": {
+      "csv": 0,
+      "table": 0,
+      "match": true
+    },
+    "nulls::updated_at": {
+      "csv": 0,
+      "table": 0,
+      "match": true
+    },
+    "nulls::category": {
+      "csv": 0,
+      "table": 0,
+      "match": true
+    },
+    "nulls::nominee": {
+      "csv": 6,
+      "table": 6,
+      "match": true
+    },
+    "nulls::artist": {
+      "csv": 1840,
+      "table": 1840,
+      "match": true
+    },
+    "nulls::workers": {
+      "csv": 2190,
+      "table": 2190,
+      "match": true
+    },
+    "nulls::img": {
+      "csv": 1367,
+      "table": 1367,
+      "match": true
+    },
+    "nulls::winner": {
+      "csv": 0,
+      "table": 0,
+      "match": true
+    }
+  },
+  "reconciled": true
+}
