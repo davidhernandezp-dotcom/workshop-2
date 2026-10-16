@@ -10,3 +10,24 @@ data/work/*
 data/raw/spotify_dataset_bad.csv
 .ipynb_checkpoints/
 uncommitted/
+# Credenciales
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Logs de Airflow y archivos de trabajo (solo en la raíz)
+/logs/
+/data/work/
+/data/staging/
+
+# Editor / sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
